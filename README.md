@@ -1,2 +1,2 @@
-# dotFIles
+# dotFiles
 My dotFiles
