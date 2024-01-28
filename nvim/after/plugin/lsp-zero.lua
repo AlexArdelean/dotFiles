@@ -15,6 +15,14 @@ lsp_zero.on_attach(function(client, bufnr)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
+-- Disable tsserver from formatting
+-- require('lspconfig').tsserver.setup({
+--   on_init = function(client)
+--     client.server_capabilities.documentFormattingProvider = false
+--     client.server_capabilities.documentFormattingRangeProvider = false
+--   end,
+-- })
+
 -- to learn how to use mason.nvim with lsp-zero
 -- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
 require('mason').setup({})

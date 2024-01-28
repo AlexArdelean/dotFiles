@@ -78,6 +78,7 @@ require("lazy").setup({
 
   -- Lsp and auto completions
   {
+    'WhoIsSethDaniel/mason-tool-installer.nvim',
     {
       'VonHeikemen/lsp-zero.nvim',
       branch = 'v3.x',
