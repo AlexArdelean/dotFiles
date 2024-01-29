@@ -17,19 +17,25 @@ require("lazy").setup({
   "folke/neodev.nvim",
   { "lukas-reineke/indent-blankline.nvim", main = "ibl",   opts = {} },
   "nvim-lua/plenary.nvim",
+
+  'ggandor/leap.nvim',
+
   {
     "nvim-telescope/telescope-frecency.nvim",
     config = function()
       require("telescope").load_extension "frecency"
     end,
   },
+
   {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.5',
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
   },
+
   'nvim-tree/nvim-web-devicons',
+
   {
     "nvim-tree/nvim-tree.lua",
     version = "*",
@@ -74,6 +80,34 @@ require("lazy").setup({
     config = function()
       require('neoscroll').setup {}
     end
+  },
+
+  {
+    "kylechui/nvim-surround",
+    version = "*",
+    event = "VeryLazy",
+    config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
+    end
+  },
+
+  -- Lazy
+  {
+    "jackMort/ChatGPT.nvim",
+      event = "VeryLazy",
+      config = function()
+        require("chatgpt").setup()
+        vim.keymap.set("n", "<leader>c", "<cmd>ChatGPT<CR>")
+        
+      end,
+      dependencies = {
+        "MunifTanjim/nui.nvim",
+        "nvim-lua/plenary.nvim",
+        "folke/trouble.nvim",
+        "nvim-telescope/telescope.nvim"
+      }
   },
 
   -- Lsp and auto completions
