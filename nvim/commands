@@ -1,1 +1,9 @@
 sudo apt install fd-find
+
+// this fixes the symbols not showing on tmux
+vim /etc/environment
+LANG=en_US.utf-8
+LC_ALL=en_US.utf-8
+
+// this fixes the colors wrong on tmux
+tmux -2

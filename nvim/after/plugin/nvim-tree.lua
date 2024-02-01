@@ -17,7 +17,7 @@ require("nvim-tree").setup({
     width = 30,
     adaptive_size = true,
     float = {
-      enable = true;
+      enable = false;
     }
   },
   renderer = {
