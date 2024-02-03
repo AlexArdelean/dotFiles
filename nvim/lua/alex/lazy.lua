@@ -21,6 +21,16 @@ require("lazy").setup({
   'ggandor/leap.nvim',
 
   {
+    "utilyre/barbecue.nvim",
+    name = "barbecue",
+    version = "*",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons",
+    },
+  },
+
+  {
     "nvim-telescope/telescope-frecency.nvim",
     config = function()
       require("telescope").load_extension "frecency"
@@ -29,6 +39,7 @@ require("lazy").setup({
 
   {
     'nvim-telescope/telescope.nvim',
+    "nvim-telescope/telescope-live-grep-args.nvim" ,
     tag = '0.1.5',
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
@@ -54,6 +65,14 @@ require("lazy").setup({
   { 'rose-pine/neovim',        name = 'rose-pine' },
   { 'folke/tokyonight.nvim',   name = 'tokyonight-night' },
   { 'rebelot/kanagawa.nvim' },
+  {
+    "gmr458/vscode_modern_theme.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  { 'ful1e5/onedark.nvim' },
+  { 'ellisonleao/gruvbox.nvim' },
+  { 'marko-cerovac/material.nvim' },
 
   {
     "ThePrimeagen/harpoon",
