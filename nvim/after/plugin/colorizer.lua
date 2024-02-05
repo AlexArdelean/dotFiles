@@ -6,4 +6,3 @@ require('colorizer').setup({
   'html';
   'typescriptreact';
 })
-

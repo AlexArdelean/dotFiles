@@ -66,4 +66,6 @@ vim.keymap.set("n", "<C-S-i>", "<cmd>bp<CR>zz")
 vim.keymap.set("n", "<C-b>", "<cmd>NvimTreeToggle<CR>")
 vim.keymap.set("n", "<C-S-b>", "<cmd>NvimTreeFindFile<CR>")
 
---vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<CR>")
+vim.keymap.set("n", "<leader>*", "<cmd>nohlsearch<CR>")
+
+vim.keymap.set('n', '<leader>vs', ':vsplit<CR>', { noremap = true, silent = true })

@@ -34,6 +34,8 @@ require("lazy").setup({
     "prettier/vim-prettier",
   },
 
+  { 'numToStr/Comment.nvim', opts = {} },
+
   {
     "nvim-telescope/telescope-frecency.nvim",
     config = function()
@@ -69,12 +71,13 @@ require("lazy").setup({
   { 'rose-pine/neovim',        name = 'rose-pine' },
   { 'folke/tokyonight.nvim',   name = 'tokyonight-night' },
   { 'rebelot/kanagawa.nvim' },
+  { 'navarasu/onedark.nvim' }, 
   {
     "gmr458/vscode_modern_theme.nvim",
     lazy = false,
     priority = 1000,
   },
-  { 'ful1e5/onedark.nvim' },
+  -- { 'ful1e5/onedark.nvim' },
   { 'ellisonleao/gruvbox.nvim' },
   { 'marko-cerovac/material.nvim' },
 

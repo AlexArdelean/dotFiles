@@ -13,7 +13,7 @@ require "telescope".setup {
     frecency = {
       ignore_patterns = { "node_modules/*" }
     }
-  }
+  },
 }
 
 require("telescope").load_extension("live_grep_args")

@@ -29,3 +29,22 @@ require'nvim-treesitter.configs'.setup {
     },
   },
 }
+
+function set_treesitter_cwd()
+  local current_buffer_path = vim.fn.expand(":TSBufName")
+  if current_buffer_path ~= '' then
+      local current_directory = vim.fn.fnamemodify(current_buffer_path, ":h")
+      vim.cmd('cd ' .. vim.fn.fnameescape(current_directory))
+      print('CWD changed to: ' .. current_directory)
+  else
+      print('Error: Unable to determine current buffer path.')
+  end
+end
+
+-- Add an autocmd to call the function when TreeSitter is loaded
+vim.api.nvim_exec([[
+  augroup SetTreeSitterCWD
+      autocmd!
+      autocmd FileType * lua set_treesitter_cwd()
+  augroup END
+]], false)
