@@ -12,3 +12,6 @@ LC_ALL=en_US.utf-8
 
 // this fixes the colors wrong on tmux
 tmux -2
+
+// Installs tmux package manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

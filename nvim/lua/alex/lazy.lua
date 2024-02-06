@@ -21,6 +21,24 @@ require("lazy").setup({
   'ggandor/leap.nvim',
 
   {
+    "christoomey/vim-tmux-navigator",
+    cmd = {
+      "TmuxNavigateLeft",
+      "TmuxNavigateDown",
+      "TmuxNavigateUp",
+      "TmuxNavigateRight",
+      "TmuxNavigatePrevious",
+    },
+    keys = {
+      { "<c-h>",  "<cmd><C-U>TmuxNavigateLeft<cr>" },
+      { "<c-j>",  "<cmd><C-U>TmuxNavigateDown<cr>" },
+      { "<c-k>",  "<cmd><C-U>TmuxNavigateUp<cr>" },
+      { "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>" },
+      { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+    },
+  },
+
+  {
     "utilyre/barbecue.nvim",
     name = "barbecue",
     version = "*",
@@ -34,7 +52,7 @@ require("lazy").setup({
     "prettier/vim-prettier",
   },
 
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim',   opts = {} },
 
   {
     "nvim-telescope/telescope-frecency.nvim",
@@ -45,7 +63,7 @@ require("lazy").setup({
 
   {
     'nvim-telescope/telescope.nvim',
-    "nvim-telescope/telescope-live-grep-args.nvim" ,
+    "nvim-telescope/telescope-live-grep-args.nvim",
     tag = '0.1.5',
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
@@ -71,7 +89,7 @@ require("lazy").setup({
   { 'rose-pine/neovim',        name = 'rose-pine' },
   { 'folke/tokyonight.nvim',   name = 'tokyonight-night' },
   { 'rebelot/kanagawa.nvim' },
-  { 'navarasu/onedark.nvim' }, 
+  { 'navarasu/onedark.nvim' },
   {
     "gmr458/vscode_modern_theme.nvim",
     lazy = false,
@@ -113,27 +131,26 @@ require("lazy").setup({
     version = "*",
     event = "VeryLazy",
     config = function()
-        require("nvim-surround").setup({
-            -- Configuration here, or leave empty to use defaults
-        })
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
     end
   },
 
   -- Lazy
   {
     "jackMort/ChatGPT.nvim",
-      event = "VeryLazy",
-      config = function()
-        require("chatgpt").setup()
-        vim.keymap.set("n", "<leader>c", "<cmd>ChatGPT<CR>")
-        
-      end,
-      dependencies = {
-        "MunifTanjim/nui.nvim",
-        "nvim-lua/plenary.nvim",
-        "folke/trouble.nvim",
-        "nvim-telescope/telescope.nvim"
-      }
+    event = "VeryLazy",
+    config = function()
+      require("chatgpt").setup()
+      vim.keymap.set("n", "<leader>c", "<cmd>ChatGPT<CR>")
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "folke/trouble.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
   },
 
   -- Lsp and auto completions
