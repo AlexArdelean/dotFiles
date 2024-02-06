@@ -1,4 +1,9 @@
-sudo apt install fd-find
+// Install rust
+cd ~
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+sudo apt-get install make
+cargo install fd-find
+cargo install ripgrep
 
 // this fixes the symbols not showing on tmux
 vim /etc/environment
