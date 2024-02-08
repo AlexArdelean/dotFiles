@@ -35,9 +35,9 @@ function set_treesitter_cwd()
   if current_buffer_path ~= '' then
       local current_directory = vim.fn.fnamemodify(current_buffer_path, ":h")
       vim.cmd('cd ' .. vim.fn.fnameescape(current_directory))
-      print('CWD changed to: ' .. current_directory)
+      -- print('CWD changed to: ' .. current_directory)
   else
-      print('Error: Unable to determine current buffer path.')
+      -- print('Error: Unable to determine current buffer path.')
   end
 end
 
