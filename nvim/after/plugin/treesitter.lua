@@ -1,4 +1,4 @@
-require'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
   ensure_installed = { "vimdoc", "c", "lua", "vim", "vimdoc", "query", "javascript", "typescript", "css" },
 
@@ -19,7 +19,7 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 
-    incremental_selection = {
+  incremental_selection = {
     enable = true,
     keymaps = {
       init_selection = '<CR>',
@@ -33,11 +33,11 @@ require'nvim-treesitter.configs'.setup {
 function set_treesitter_cwd()
   local current_buffer_path = vim.fn.expand(":TSBufName")
   if current_buffer_path ~= '' then
-      local current_directory = vim.fn.fnamemodify(current_buffer_path, ":h")
-      vim.cmd('cd ' .. vim.fn.fnameescape(current_directory))
-      -- print('CWD changed to: ' .. current_directory)
+    local current_directory = vim.fn.fnamemodify(current_buffer_path, ":h")
+    vim.cmd('cd ' .. vim.fn.fnameescape(current_directory))
+    -- print('CWD changed to: ' .. current_directory)
   else
-      -- print('Error: Unable to determine current buffer path.')
+    -- print('Error: Unable to determine current buffer path.')
   end
 end
 
