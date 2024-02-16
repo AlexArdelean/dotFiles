@@ -70,3 +70,4 @@ vim.keymap.set("n", "<C-S-b>", "<cmd>NvimTreeFindFile<CR>")
 vim.keymap.set("n", "<leader>*", "<cmd>nohlsearch<CR>")
 
 vim.keymap.set('n', '<leader>vs', ':vsplit<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>hs', ':sp<CR>', { noremap = true, silent = true })
