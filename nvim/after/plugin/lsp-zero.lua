@@ -25,6 +25,7 @@ lsp_zero.format_on_save({
   servers = {
     -- ['tsserver'] = {'javascript', 'typescript', 'typescriptreact'},
     ['rust_analyzer'] = {'rust'},
+    ['gopls'] = {'go'},
   }
 })
 
@@ -35,7 +36,7 @@ vim.api.nvim_exec([[
 vim.keymap.set("n", "<leader>p", ":Prettier<CR>")
 vim.g.prettier_autoformat = 1
 vim.g.prettier_autoformat_require_pragma = 0
- 
+
 -- Disable tsserver from formatting in favor of prettier/vim-prettier
 require('lspconfig').tsserver.setup({
   on_init = function(client)
