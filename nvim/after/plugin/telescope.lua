@@ -26,6 +26,7 @@ vim.keymap.set('n', '<leader><leader>', "<Cmd>Telescope frecency workspace=CWD<C
 vim.keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+vim.keymap.set('n', '<leader>fo',  "<Cmd>Telescope oldfiles<CR>", {})
 
 -- vim.api.nvim_set_keymap("n", "<Leader>fr",
 --   [[<cmd>lua require('telescope').extensions.recent_files.pick()<CR>]],
