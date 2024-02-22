@@ -60,6 +60,7 @@ require("lazy").setup({
       require("telescope").load_extension "frecency"
     end,
   },
+  'zane-/cder.nvim',
 
   {
     'nvim-telescope/telescope.nvim',
@@ -142,10 +143,6 @@ require("lazy").setup({
   {
     "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
-    config = function()
-      require("chatgpt").setup()
-      vim.keymap.set("n", "<leader>c", "<cmd>ChatGPT<CR>")
-    end,
     dependencies = {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
