@@ -52,7 +52,9 @@ require("lazy").setup({
     "prettier/vim-prettier",
   },
 
-  { 'numToStr/Comment.nvim',   opts = {} },
+  -- { 'numToStr/Comment.nvim',   opts = {} },
+  { 'echasnovski/mini.nvim', version = '*' },
+  'JoosepAlviste/nvim-ts-context-commentstring',
 
   {
     "nvim-telescope/telescope-frecency.nvim",
