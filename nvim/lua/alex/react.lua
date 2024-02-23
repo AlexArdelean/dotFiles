@@ -3,11 +3,17 @@ vim.cmd([[command! -nargs=1 ReactComponent lua ReactComponent(<f-args>)]])
 vim.cmd([[command! -nargs=1 ReactStyledComponent lua ReactStyledComponent(<f-args>)]])
 vim.cmd([[command! -nargs=1 ReactUseState lua ReactUseState(<f-args>)]])
 
-vim.api.nvim_set_keymap('n', '<leader>rc', ':ReactComponent<Space>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>rs', ':ReactStyledComponent<Space>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>rus', ':ReactUseState<Space>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>rc', ':lua ReactComponent<Space>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>rs', ':lua ReactStyledComponent<Space>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>rus', ':lua ReactUseState<Space>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>rcl', ':lua ConsoleLog()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>rue', ':lua InsertUseEffect()<CR>', { noremap = true, silent = true })
+
+-- vim.api.nvim_set_keymap('n', '<leader>rc', ':ReactComponent<Space>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<leader>rs', ':ReactStyledComponent<Space>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<leader>rus', ':ReactUseState<Space>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<leader>rcl', ':lua ConsoleLog()<CR>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<leader>rue', ':lua InsertUseEffect()<CR>', { noremap = true, silent = true })
 
 function ReactComponent(name)
   local component_code = string.format([[

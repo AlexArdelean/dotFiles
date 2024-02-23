@@ -1,4 +1,7 @@
 require("alex.remap")
 require("alex.lazy")
 require("alex.set")
-require("alex.snippets")
+
+-- Language specific remaps
+require("alex.react")
+require("alex.go")
