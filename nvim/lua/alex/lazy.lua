@@ -21,6 +21,20 @@ require("lazy").setup({
   'ggandor/leap.nvim',
 
   {
+    "kawre/leetcode.nvim",
+    build = ":TSUpdate html",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      -- optional
+      "nvim-treesitter/nvim-treesitter",
+      "rcarriga/nvim-notify",
+      "nvim-tree/nvim-web-devicons",
+    },
+  },
+
+  {
     "christoomey/vim-tmux-navigator",
     cmd = {
       "TmuxNavigateLeft",
@@ -53,7 +67,7 @@ require("lazy").setup({
   },
 
   -- { 'numToStr/Comment.nvim',   opts = {} },
-  { 'echasnovski/mini.nvim', version = '*' },
+  { 'echasnovski/mini.nvim',   version = '*' },
   'JoosepAlviste/nvim-ts-context-commentstring',
 
   {
