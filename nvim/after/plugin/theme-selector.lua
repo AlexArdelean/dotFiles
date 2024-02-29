@@ -4,6 +4,8 @@ local conf = require("telescope.config").values
 local actions = require "telescope.actions"
 local action_state = require "telescope.actions.state"
 
+vim.api.nvim_set_keymap('n', '<leader>t', "<cmd>lua colors(require('telescope.themes').get_dropdown{})<CR>", { noremap = true, silent = true })
+
 local colors_table = {
   "material",
   "onedark",
@@ -52,5 +54,4 @@ function colors(opts)
     end,
   }):find()
 end
- 
-vim.api.nvim_set_keymap('n', '<leader>t', "<cmd>lua colors(require('telescope.themes').get_dropdown{})<CR>", { noremap = true, silent = true })
+

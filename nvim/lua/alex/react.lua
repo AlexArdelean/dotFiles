@@ -1,19 +1,15 @@
--- Define the command to insert a component
 vim.cmd([[command! -nargs=1 ReactComponent lua ReactComponent(<f-args>)]])
 vim.cmd([[command! -nargs=1 ReactStyledComponent lua ReactStyledComponent(<f-args>)]])
+vim.cmd([[command! -nargs=1 ReactStyledTag lua ReactStyledTag(<f-args>)]])
 vim.cmd([[command! -nargs=1 ReactUseState lua ReactUseState(<f-args>)]])
 
-vim.api.nvim_set_keymap('n', '<leader>rc', ':lua ReactComponent<Space>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>rs', ':lua ReactStyledComponent<Space>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>rus', ':lua ReactUseState<Space>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>rc', ':ReactComponent<Space>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>rsc', ':ReactStyledComponent<Space>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>rst', ':ReactStyledTag<Space>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>rus', ':ReactUseState<Space>', { noremap = true, silent = true })
+
 vim.api.nvim_set_keymap('n', '<leader>rcl', ':lua ConsoleLog()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>rue', ':lua InsertUseEffect()<CR>', { noremap = true, silent = true })
-
--- vim.api.nvim_set_keymap('n', '<leader>rc', ':ReactComponent<Space>', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', '<leader>rs', ':ReactStyledComponent<Space>', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', '<leader>rus', ':ReactUseState<Space>', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', '<leader>rcl', ':lua ConsoleLog()<CR>', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', '<leader>rue', ':lua InsertUseEffect()<CR>', { noremap = true, silent = true })
 
 function ReactComponent(name)
   local component_code = string.format([[
@@ -26,8 +22,17 @@ const %s = () => {
     ]], name)
   InsertComponentCode(component_code)
 end
-
+    
 function ReactStyledComponent(name)
+  local capitalized_name = name:gsub("^%l", string.upper)
+  local component_code = string.format([[
+const Styled%s = styled(%s)`
+`
+    ]], capitalized_name, capitalized_name)
+  InsertComponentCode(component_code)
+end
+
+function ReactStyledTag(name)
   local component_code = string.format([[
 const %s = styled.div`
 `
@@ -36,9 +41,10 @@ const %s = styled.div`
 end
 
 function ReactUseState(name)
+  local capitalized_name = name:gsub("^%l", string.upper)
   local component_code = string.format([[
-        const [%s, set%s] = useState()
-        ]], name)
+const [%s, set%s] = useState()
+]], name, capitalized_name)
   InsertComponentCode(component_code)
 end
 

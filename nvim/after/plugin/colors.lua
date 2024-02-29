@@ -6,7 +6,6 @@ require("vscode_modern").setup({
 
 require('material').setup({})
 vim.g.material_style = "deep ocean"
-vim.keymap.set("n", "<leader>m", "<cmd>lua require('material.functions').find_style()<CR>")
 
 require('onedark').setup {
 	style = 'deep'
