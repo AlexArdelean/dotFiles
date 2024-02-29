@@ -16,5 +16,8 @@ cargo install fd-find
 # Install ripgrep using cargo
 cargo install ripgrep
 
+# Install tree-sitter-cli globally for treesitter-textobjects
+npm install -g tree-sitter-cli
+
 # Print completion message
 echo "Neovim tools installation completed. Make sure to restart your shell or run 'source ~/.bashrc' or 'source ~/.zshrc' for changes to take effect."
