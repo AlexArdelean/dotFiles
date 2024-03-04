@@ -1,82 +1,72 @@
-require('leetcode').setup(
-  {
-    ---@type string
-    arg = "leetcode.nvim",
+require('leetcode').setup({
+  arg = "leetcode.nvim",
 
-    ---@type lc.lang
-    lang = "cpp",
+  lang = "cpp",
 
-    cn = { -- leetcode.cn
-      enabled = false, ---@type boolean
-      translator = true, ---@type boolean
-      translate_problems = true, ---@type boolean
+  storage = {
+    home = vim.fn.stdpath("data") .. "/leetcode",
+    cache = vim.fn.stdpath("cache") .. "/leetcode",
+  },
+
+  logging = true,
+
+  injector = {
+    ["cpp"] = {
+      before = { "#include <bits/stdc++.h>", "#include <vector>", "using namespace std;" },
+      after = "int main() {}",
+    },
+  },
+
+  cache = {
+    update_interval = 60 * 60 * 24 * 7,
+  },
+
+  console = {
+    open_on_runcode = true,
+
+    dir = "row",
+
+    size = {
+      width = "90%",
+      height = "75%",
     },
 
-    ---@type lc.storage
-    storage = {
-      home = vim.fn.stdpath("data") .. "/leetcode",
-      cache = vim.fn.stdpath("cache") .. "/leetcode",
+    result = {
+      size = "60%",
     },
 
-    ---@type boolean
-    logging = true,
+    testcase = {
+      virt_text = true,
 
-    injector = {}, ---@type table<lc.lang, lc.inject>
-
-    cache = {
-      update_interval = 60 * 60 * 24 * 7, ---@type integer 7 days
+      size = "40%",
     },
+  },
 
-    console = {
-      open_on_runcode = true, ---@type boolean
+  description = {
+    position = "left",
 
-      dir = "row", ---@type lc.direction
+    width = "40%",
 
-      size = { ---@type lc.size
-        width = "90%",
-        height = "75%",
-      },
+    show_stats = true,
+  },
 
-      result = {
-        size = "60%", ---@type lc.size
-      },
+  hooks = {
+    LeetEnter = {},
+    LeetQuestionNew = {},
+  },
 
-      testcase = {
-        virt_text = true, ---@type boolean
+  keys = {
+    toggle = { "q", "<Esc>" },
+    confirm = { "<CR>" },
 
-        size = "40%", ---@type lc.size
-      },
-    },
+    reset_testcases = "r",
+    use_testcase = "U",
+    focus_testcases = "H",
+    focus_result = "L",
+  },
 
-    description = {
-      position = "left", ---@type lc.position
-
-      width = "40%", ---@type lc.size
-
-      show_stats = true, ---@type boolean
-    },
-
-    hooks = {
-      ---@type fun()[]
-      LeetEnter = {},
-
-      ---@type fun(question: lc.ui.Question)[]
-      LeetQuestionNew = {},
-    },
-
-    keys = {
-      toggle = { "q", "<Esc>" }, ---@type string|string[]
-      confirm = { "<CR>" }, ---@type string|string[]
-
-      reset_testcases = "r", ---@type string
-      use_testcase = "U", ---@type string
-      focus_testcases = "H", ---@type string
-      focus_result = "L", ---@type string
-    },
-
-    ---@type boolean
-    image_support = false,
-  }
+  image_support = false,
+}
 )
 
 vim.keymap.set("n", "<leader>lr", "<cmd>Leet run<CR>")
@@ -85,3 +75,4 @@ vim.keymap.set("n", "<leader>ld", "<cmd>Leet desc<CR>")
 vim.keymap.set("n", "<leader>lo", "<cmd>Leet open<CR>")
 vim.keymap.set("n", "<leader>lt", "<cmd>Leet tabs<CR>")
 vim.keymap.set("n", "<leader>ll", "<cmd>Leet list<CR>")
+vim.keymap.set("n", "<leader>lc", "<cmd>Leet console<CR>")

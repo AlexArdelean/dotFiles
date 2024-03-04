@@ -1,4 +1,3 @@
--- local custom_sorter = require("top-result-sorter")
 local builtin = require('telescope.builtin')
 
 require "telescope".setup {
@@ -7,7 +6,7 @@ require "telescope".setup {
     sorting_strategy = "ascending",
     layout_config = {
       prompt_position = "top"
-    }
+    },
   },
   extensions = {
     frecency = {
