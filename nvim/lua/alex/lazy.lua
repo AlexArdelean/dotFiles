@@ -19,6 +19,7 @@ require("lazy").setup({
   "nvim-lua/plenary.nvim",
 
   'ggandor/leap.nvim',
+  'mg979/vim-visual-multi',
 
   {
     "kawre/leetcode.nvim",
