@@ -109,7 +109,7 @@ require("lazy").setup({
     end,
   },
 
-  { 'dstein64/nvim-scrollview' },
+  -- { 'dstein64/nvim-scrollview' },
 
   -- Color schemes
   { 'rose-pine/neovim',        name = 'rose-pine' },
