@@ -19,6 +19,7 @@ require("lazy").setup({
   "nvim-lua/plenary.nvim",
 
   'ggandor/leap.nvim',
+  'mg979/vim-visual-multi',
 
   {
     "kawre/leetcode.nvim",
@@ -108,7 +109,7 @@ require("lazy").setup({
     end,
   },
 
-  { 'dstein64/nvim-scrollview' },
+  -- { 'dstein64/nvim-scrollview' },
 
   -- Color schemes
   { 'rose-pine/neovim',        name = 'rose-pine' },

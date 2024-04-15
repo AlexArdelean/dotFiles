@@ -22,13 +22,22 @@ require("telescope").load_extension("live_grep_args")
 
 --vim.keymap.set('n', '<leader><leader>', builtin.find_files, {})
 vim.keymap.set('n', '<leader><leader>', "<Cmd>Telescope frecency workspace=CWD<CR>", {})
-vim.keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
+vim.keymap.set('n', '<leader>fp', "<Cmd>Telescope frecency workspace=CWD preview=true<CR>", {})
+vim.keymap.set('n', '<leader>fg',
+  ":lua require('telescope').extensions.live_grep_args.live_grep_args({preview = true})<CR>", {})
+vim.keymap.set("n", "<leader>fz", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 vim.keymap.set("n", "<leader>fc", ":lua require('telescope.builtin').git_commits{preview = true}<CR>")
 vim.keymap.set("n", "<leader>fs", ":lua require('telescope.builtin').git_stash{preview = true}<CR>")
 vim.keymap.set("n", "<leader>fm", "<Cmd>Telescope git_branches<CR>")
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>fo', "<Cmd>Telescope oldfiles<CR>", {})
+
+-- Lsp telescope things
+vim.keymap.set('n', 'gd', function() require('telescope.builtin').lsp_definitions({ preview = true }) end,
+  { noremap = false, silent = true })
+vim.keymap.set('n', 'gr', function() require('telescope.builtin').lsp_references({ preview = true }) end,
+  { noremap = false, silent = true })
 
 -- vim.api.nvim_set_keymap("n", "<Leader>fr",
 --   [[<cmd>lua require('telescope').extensions.recent_files.pick()<CR>]],
