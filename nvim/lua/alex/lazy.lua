@@ -21,6 +21,13 @@ require("lazy").setup({
   'ggandor/leap.nvim',
   'mg979/vim-visual-multi',
 
+
+  {
+    'eandrju/cellular-automaton.nvim',
+    event = "VeryLazy",
+  },
+
+
   {
     "kawre/leetcode.nvim",
     build = ":TSUpdate html",
@@ -75,7 +82,7 @@ require("lazy").setup({
   },
 
   -- { 'numToStr/Comment.nvim',   opts = {} },
-  { 'echasnovski/mini.nvim',   version = '*' },
+  { 'echasnovski/mini.nvim', version = '*' },
   'JoosepAlviste/nvim-ts-context-commentstring',
 
   {
@@ -112,8 +119,8 @@ require("lazy").setup({
   -- { 'dstein64/nvim-scrollview' },
 
   -- Color schemes
-  { 'rose-pine/neovim',        name = 'rose-pine' },
-  { 'folke/tokyonight.nvim',   name = 'tokyonight-night' },
+  { 'rose-pine/neovim',      name = 'rose-pine' },
+  { 'folke/tokyonight.nvim', name = 'tokyonight-night' },
   { 'rebelot/kanagawa.nvim' },
   { 'navarasu/onedark.nvim' },
   {
@@ -163,7 +170,6 @@ require("lazy").setup({
     end
   },
 
-  -- Lazy
   {
     "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
