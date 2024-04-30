@@ -32,6 +32,9 @@ vim.keymap.set("n", "<leader>fm", "<Cmd>Telescope git_branches<CR>")
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>fo', "<Cmd>Telescope oldfiles<CR>", {})
+vim.keymap.set("n", "<leader>fa",
+  ":lua require('telescope.builtin').live_grep({ preview = true, grep_open_files = true })<CR>")
+
 
 -- Lsp telescope things
 vim.keymap.set('n', 'gd', function() require('telescope.builtin').lsp_definitions({ preview = true }) end,
