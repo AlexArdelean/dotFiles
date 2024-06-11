@@ -23,9 +23,12 @@ require("lazy").setup({
 
 
   {
-    'eandrju/cellular-automaton.nvim',
-    event = "VeryLazy",
-  },
+     'eandrju/cellular-automaton.nvim',
+     event = "VeryLazy",
+   },
+
+
+  {'akinsho/git-conflict.nvim', version = "*", config = true},
 
 
   {
@@ -145,9 +148,9 @@ require("lazy").setup({
     dependencies = { 'nvim-tree/nvim-web-devicons' }
   },
   {
-    'akinsho/bufferline.nvim',
-    version = "*",
-    dependencies = 'nvim-tree/nvim-web-devicons'
+  'akinsho/bufferline.nvim',
+  version = "*",
+  dependencies = 'nvim-tree/nvim-web-devicons'
   },
   'lewis6991/gitsigns.nvim',
 
