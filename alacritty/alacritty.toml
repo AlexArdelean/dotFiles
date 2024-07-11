@@ -15,7 +15,7 @@ bold.family = "JetBrainsMonoNL Nerd Font Mono"
 italic.family = "JetBrainsMonoNL Nerd Font Mono"
 bold_italic.family = "JetBrainsMonoNL Nerd Font Mono"
 
-size = 11.0
+size = 14.0
 
 # Colors (Tokyo Night Storm variant)
 # Source https//github.com/zatchheems/tokyo-night-alacritty-theme
