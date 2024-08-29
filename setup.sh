@@ -26,6 +26,9 @@ else
     echo "TPM (Tmux Plugin Manager) installed successfully."
 fi
 
+# Install all plugins
+"$TPM_DIR/bin/install_plugins"
+
 # Check if ripgrep (rg) is installed
 if ! command -v rg &> /dev/null; then
     echo "ripgrep (rg) not found. Installing..."
