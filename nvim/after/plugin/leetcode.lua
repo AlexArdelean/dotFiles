@@ -12,7 +12,7 @@ require('leetcode').setup({
 
   injector = {
     ["cpp"] = {
-      before = { "#include <bits/stdc++.h>", "#include <vector>", "using namespace std;" },
+      before = { "#include <bits/stdc++.h>", "using namespace std;" },
       after = "int main() {}",
     },
   },
