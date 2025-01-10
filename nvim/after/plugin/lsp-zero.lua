@@ -26,27 +26,14 @@ lsp_zero.format_on_save({
     timeout_ms = 10000,
   },
   servers = {
-    -- ['ts_ls'] = {'javascript', 'typescript', 'typescriptreact'},
+    ['ts_ls'] = {'javascript', 'typescript', 'typescriptreact'},
     ['rust_analyzer'] = { 'rust' },
     ['gopls'] = { 'go' },
   }
 })
 
--- This will allow prettier/vim-prettier to auto format on save
-vim.api.nvim_exec([[
-  autocmd BufWritePre *.tsx,*.ts Prettier
-]], false)
-vim.keymap.set("n", "<leader>p", ":Prettier<CR>")
-vim.g.prettier_autoformat = 1
-vim.g.prettier_autoformat_require_pragma = 0
-
--- Disable tsserver from formatting in favor of prettier/vim-prettier
-require('lspconfig').ts_ls.setup({
-  on_init = function(client)
-    client.server_capabilities.documentFormattingProvider = false
-    client.server_capabilities.documentFormattingRangeProvider = false
-  end,
-})
+require('lspconfig').ts_ls.setup({})
+require('lspconfig').gopls.setup({})
 
 -- to learn how to use mason.nvim with lsp-zero
 -- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
