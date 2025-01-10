@@ -26,7 +26,7 @@ lsp_zero.format_on_save({
     timeout_ms = 10000,
   },
   servers = {
-    -- ['tsserver'] = {'javascript', 'typescript', 'typescriptreact'},
+    -- ['ts_ls'] = {'javascript', 'typescript', 'typescriptreact'},
     ['rust_analyzer'] = { 'rust' },
     ['gopls'] = { 'go' },
   }
@@ -41,7 +41,7 @@ vim.g.prettier_autoformat = 1
 vim.g.prettier_autoformat_require_pragma = 0
 
 -- Disable tsserver from formatting in favor of prettier/vim-prettier
-require('lspconfig').tsserver.setup({
+require('lspconfig').ts_ls.setup({
   on_init = function(client)
     client.server_capabilities.documentFormattingProvider = false
     client.server_capabilities.documentFormattingRangeProvider = false
