@@ -221,7 +221,12 @@ require("lazy").setup({
     'hrsh7th/cmp-nvim-lua',
     'L3MON4D3/LuaSnip',
     'rafamadriz/friendly-snippets',
-    'mfussenegger/nvim-lint'
+    {
+      'nvimtools/none-ls.nvim',
+      dependencies = {
+        "nvimtools/none-ls-extras.nvim",
+      },
+    },
   }
 
 }
