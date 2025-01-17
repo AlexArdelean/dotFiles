@@ -32,8 +32,19 @@ lsp_zero.format_on_save({
   }
 })
 
+
+-- lspconfig
 require('lspconfig').ts_ls.setup({})
 require('lspconfig').gopls.setup({})
+-- TODO: Prevent tailwindcss-colors from attaching on all clients
+require('lspconfig')["tailwindcss"].setup({
+  on_attach = function(client, bufnr)
+    local filetype = vim.bo[bufnr].filetype
+    if filetype == "typescriptreact" then
+      require("tailwindcss-colors").buf_attach(bufnr)
+    end
+  end
+})
 
 -- to learn how to use mason.nvim with lsp-zero
 -- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
