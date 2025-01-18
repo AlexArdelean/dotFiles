@@ -22,7 +22,7 @@ end)
 -- `format_on_save` should run only once, before the language servers are active.
 lsp_zero.format_on_save({
   format_opts = {
-    async = false,
+    async = true,
     timeout_ms = 10000,
   },
   servers = {
@@ -32,18 +32,12 @@ lsp_zero.format_on_save({
   }
 })
 
-
--- lspconfig
 require('lspconfig').ts_ls.setup({})
 require('lspconfig').gopls.setup({})
--- TODO: Prevent tailwindcss-colors from attaching on all clients
 require('lspconfig')["tailwindcss"].setup({
-  on_attach = function(client, bufnr)
-    local filetype = vim.bo[bufnr].filetype
-    if filetype == "typescriptreact" then
-      require("tailwindcss-colors").buf_attach(bufnr)
-    end
-  end
+  -- on_attach = function(client, bufnr)
+  --   require("tailwindcss-colors").buf_attach(bufnr)
+  -- end
 })
 
 -- to learn how to use mason.nvim with lsp-zero
