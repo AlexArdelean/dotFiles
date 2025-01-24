@@ -10,8 +10,8 @@ lsp_zero.on_attach(function(client, bufnr)
   vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
   vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
   vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-  vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-  vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+  vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)
+  vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
   vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
   vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
   vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
@@ -26,18 +26,10 @@ lsp_zero.format_on_save({
     timeout_ms = 10000,
   },
   servers = {
-    ['ts_ls'] = {'javascript', 'typescript', 'typescriptreact'},
+    ['ts_ls'] = { 'javascript', 'typescript', 'typescriptreact' },
     ['rust_analyzer'] = { 'rust' },
     ['gopls'] = { 'go' },
   }
-})
-
-require('lspconfig').ts_ls.setup({})
-require('lspconfig').gopls.setup({})
-require('lspconfig')["tailwindcss"].setup({
-  -- on_attach = function(client, bufnr)
-  --   require("tailwindcss-colors").buf_attach(bufnr)
-  -- end
 })
 
 -- to learn how to use mason.nvim with lsp-zero
