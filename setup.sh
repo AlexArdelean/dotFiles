@@ -1,6 +1,15 @@
 #!/bin/bash
 
-TPM_DIR=~/.tmux/plugins/tpm
+
+# Check if rofi is installed
+if ! command -v rofi &> /dev/null; then
+    echo "rofi not found. Installing..."
+    sudo apt-get install rofi 
+else
+    echo "rofi is already installed."
+fi
+# Install the rofi theme
+sudo mv ~/.config/rofi/tokyonight.rasi /usr/share/rofi/themes
 
 # Check if tmux is installed
 if ! command -v tmux &> /dev/null; then
@@ -19,6 +28,7 @@ else
 fi
 
 # Check if TPM directory already exists
+TPM_DIR=~/.tmux/plugins/tpm
 if [ -d "$TPM_DIR" ]; then
     echo "TPM (Tmux Plugin Manager) is already installed."
 else
@@ -39,8 +49,9 @@ else
     echo "ripgrep (rg) is already installed."
 fi
 
-ln -s ~/dotFiles/tmux/tmux.conf ~/.tmux.conf
 ln -s ~/dotFiles/nvim/ ~/.config/
 ln -s ~/dotFiles/alacritty/ ~/.config/
-ln -s ~/dotFiles/bashrc ~/.bashrc
 ln -s ~/dotFiles/i3 ~/.config
+ln -s ~/dotFiles/rofi ~/.config/
+ln -s ~/dotFiles/tmux/tmux.conf ~/.tmux.conf
+ln -s ~/dotFiles/bashrc ~/.bashrc
