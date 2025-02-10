@@ -4,20 +4,30 @@ bindsym --release --border button2 kill
 
 for_window [window_type="normal"] border normal
 
+focus_on_window_activation urgent
+
 assign [class="Alacritty"] 1
 for_window [class="Alacritty"] move to workspace 1
+for_window [class="Alacritty"] focus
 exec --no-startup-id i3-msg "workspace 1; exec alacritty"
 
 assign [class="Google-chrome"] 2
 for_window [class="Google-chrome"] move to workspace 2
+for_window [class="Google-chrome"] focus
 exec --no-startup-id i3-msg "workspace 2; exec google-chrome --profile-directory=Default"
 
 assign [class="ChatGPT Desktop"] 3
 for_window [class="ChatGPT Desktop"] move to workspace 3
+for_window [class="ChatGPT Desktop"] focus
 exec --no-startup-id i3-msg "workspace 3; exec chatgpt-desktop"
+
+assign [class="Gimp-2.10"] 4
+for_window [class="Gimp-2.10"] move to workspace 4
+for_window [class="Gimp-2.10"] focus
 
 assign [class="Spotify"] 9
 for_window [class="Spotify"] move to workspace 9
+for_window [class="Spotify"] focus
 
 # i3 config file (v4)
 #
