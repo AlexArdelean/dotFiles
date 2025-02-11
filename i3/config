@@ -1,10 +1,13 @@
 exec --no-startup-id picom
+exec_always --no-startup-id ~/dotFiles/i3/autotiling
 
 bindsym --release --border button2 kill
 
 for_window [window_type="normal"] border normal
 
 focus_on_window_activation urgent
+
+client.focused #7aa2f7 #2a2c3e #c0caf5 #bb9af7 #7aa2f7
 
 assign [class="Alacritty"] 1
 for_window [class="Alacritty"] move to workspace 1
@@ -21,8 +24,12 @@ for_window [class="ChatGPT Desktop"] move to workspace 3
 for_window [class="ChatGPT Desktop"] focus
 exec --no-startup-id i3-msg "workspace 3; exec chatgpt-desktop"
 
-assign [class="Gimp-2.10"] 4
-for_window [class="Gimp-2.10"] move to workspace 4
+assign [class="Postman"] 4
+for_window [class="Postman"] move to workspace 4
+for_window [class="Postman"] focus
+
+assign [class="Gimp-2.10"] 5
+for_window [class="Gimp-2.10"] move to workspace 5
 for_window [class="Gimp-2.10"] focus
 
 assign [class="Spotify"] 9

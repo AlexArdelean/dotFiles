@@ -49,6 +49,10 @@ else
     echo "ripgrep (rg) is already installed."
 fi
 
+# Stuff needed to install
+# sudo apt install gtk2-engines-murrine // for theme
+# pip3 install i3ipc // for autotiling script
+
 ln -s ~/dotFiles/nvim/ ~/.config/
 ln -s ~/dotFiles/alacritty/ ~/.config/
 ln -s ~/dotFiles/i3 ~/.config
