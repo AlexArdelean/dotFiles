@@ -24,5 +24,8 @@ if [ "$(workspace_window_count "$workspace_to_check")" -eq 0 ]; then
   if [ "$workspace_to_check" -eq 9 ]; then
     spotify &
   fi
+  if [ "$workspace_to_check" -eq 10 ]; then
+    google-chrome --app=http://localhost:3000/ &
+  fi
 fi
 
