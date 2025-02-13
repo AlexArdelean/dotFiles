@@ -27,7 +27,8 @@ exec --no-startup-id i3-msg "workspace 3; exec chatgpt-desktop"
 assign [class="Postman"] 4
 for_window [class="Postman"] move to workspace 4
 for_window [class="Postman"] focus
-bindsym Mod4+4 workspace number 4; exec --no-startup-id ~/dotFiles/i3/autostartapp.sh 4
+bindsym Mod4+4 workspace number 4; exec --no-startup-id ~/dotFiles/i3/autostartapp.sh \
+  "snap run postman" 4
 
 assign [class="Gimp-2.10"] 5
 for_window [class="Gimp-2.10"] move to workspace 5
@@ -36,19 +37,23 @@ for_window [class="Gimp-2.10"] focus
 assign [title="Overview – Home Assistant"] 8
 for_window [title="Overview – Home Assistant"] move to workspace 8
 for_window [title="Overview – Home Assistant"] focus
-bindsym Mod4+8 workspace number 8; exec --no-startup-id ~/dotFiles/i3/autostartapp.sh 8
+bindsym Mod4+8 workspace number 8; exec --no-startup-id ~/dotFiles/i3/autostartapp.sh \
+  "google-chrome --app=http://192.168.1.146:8123/" 8
 
 assign [class="Spotify"] 9
 for_window [class="Spotify"] move to workspace 9
 for_window [class="Spotify"] focus
-bindsym Mod4+9 workspace number 9; exec --no-startup-id ~/dotFiles/i3/autostartapp.sh 9 
+bindsym Mod4+9 workspace number 9; exec --no-startup-id ~/dotFiles/i3/autostartapp.sh \
+  "spotify" 9
 
 assign [title="Create Next App"] 10
+assign [title="DevTools - localhost:3000/"] 10
 for_window [title="Create Next App"] move to workspace 10
 for_window [title="Create Next App"] focus
 for_window [title="DevTools - localhost:3000/"] move to workspace 10
 for_window [title="DevTools - localhost:3000/"] focus
-bindsym Mod4+0 workspace number 10; exec --no-startup-id ~/dotFiles/i3/autostartapp.sh 10
+bindsym Mod4+0 workspace number 10; exec --no-startup-id ~/dotFiles/i3/autostartapp.sh \
+  "google-chrome --app=http://localhost:3000/" 10
 
 # i3 config file (v4)
 #

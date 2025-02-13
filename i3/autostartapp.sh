@@ -1,31 +1,29 @@
 #!/bin/bash
 
-# Returns the number of windows in the given workspace.
+# Autostarts the command if the workspace is empty
+
 workspace_window_count() {
     local ws_name="$1"
     i3-msg -t get_tree | jq --arg ws "$ws_name" '
-      (recurse(.nodes[]?) |
+      (recurse(.nodes[]?, .floating_nodes[]?) |
        select(.type=="workspace" and .name==$ws) |
+       recurse(.nodes[]?, .floating_nodes[]?) |
        .nodes | map(select(.window != null)) | length)
       // 0
     '
 }
 
-# Accept a workspace argument, defaulting to 8 if none is provided.
-workspace_to_check="${1:-8}"
+# Accept workspace argument, defaulting to 8 if none is provided.
+workspace_to_check="${2:-8}"
+command_to_run="$1" # The command to execute
 
-if [ "$(workspace_window_count "$workspace_to_check")" -eq 0 ]; then
-  if [ "$workspace_to_check" -eq 4 ]; then
-    snap run postman &
-  fi
-  if [ "$workspace_to_check" -eq 8 ]; then
-    google-chrome --app=http://192.168.1.146:8123 &
-  fi
-  if [ "$workspace_to_check" -eq 9 ]; then
-    spotify &
-  fi
-  if [ "$workspace_to_check" -eq 10 ]; then
-    google-chrome --app=http://localhost:3000/ &
-  fi
+window_count=$(workspace_window_count "$workspace_to_check")
+
+# Print the workspace check result
+echo "Workspace $workspace_to_check has $window_count window(s)."
+
+# Run the command if workspace is empty
+if [ "$window_count" -eq 0 ] && [ -n "$command_to_run" ]; then
+  eval "$command_to_run &"
 fi
 
