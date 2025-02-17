@@ -13,10 +13,16 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   "folke/which-key.nvim",
-  { "folke/neoconf.nvim", cmd = "Neoconf" },
+  { "folke/neoconf.nvim",                  cmd = "Neoconf" },
   "folke/neodev.nvim",
   { "lukas-reineke/indent-blankline.nvim", main = "ibl",   opts = {} },
   "nvim-lua/plenary.nvim",
+
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+  },
 
   "ggandor/leap.nvim",
   "mg979/vim-visual-multi",
