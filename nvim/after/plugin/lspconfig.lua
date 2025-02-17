@@ -1,7 +1,12 @@
 local lspconfig = require("lspconfig")
+local capabilities = require('blink.cmp').get_lsp_capabilities()
 
-lspconfig.ts_ls.setup({})
-lspconfig.gopls.setup({})
+lspconfig.ts_ls.setup({
+  capabilities = capabilities
+})
+lspconfig.gopls.setup({
+  capabilities = capabilities
+})
 
 -- lspconfig["tailwindcss"].setup({
 -- on_attach = function(client, bufnr)
@@ -10,6 +15,7 @@ lspconfig.gopls.setup({})
 -- })
 
 lspconfig["tailwindcss"].setup({
+  capabilities = capabilities,
   settings = {
     tailwindCSS = {
       experimental = {
@@ -19,18 +25,5 @@ lspconfig["tailwindcss"].setup({
         },
       },
     }
-  }
-})
-
--- Trying to always do absolute imports
-lspconfig.ts_ls.setup({
-  settings = {
-    typescript = {
-      preferences = {
-        includeCompletionsForModuleExports = true,
-        includeCompletionsForImportStatements = true,
-        importModuleSpecifier = "non-relative",
-      },
-    },
   }
 })
