@@ -134,16 +134,11 @@ require("lazy").setup({
   -- { 'dstein64/nvim-scrollview' },
 
   -- Color schemes
-  { "rose-pine/neovim",      name = "rose-pine" },
-  { "folke/tokyonight.nvim", name = "tokyonight-night" },
+  { "folke/tokyonight.nvim",           name = "tokyonight-night" },
+  { "rose-pine/neovim",                name = "rose-pine" },
   { "rebelot/kanagawa.nvim" },
   { "navarasu/onedark.nvim" },
-  {
-    "gmr458/vscode_modern_theme.nvim",
-    lazy = false,
-    priority = 1000,
-  },
-  -- { 'ful1e5/onedark.nvim' },
+  { "gmr458/vscode_modern_theme.nvim", },
   { "ellisonleao/gruvbox.nvim" },
   { "marko-cerovac/material.nvim" },
 
