@@ -19,13 +19,13 @@ for_window [class="Google-chrome"] move to workspace 2
 for_window [class="Google-chrome"] focus
 exec --no-startup-id i3-msg "workspace 2; exec google-chrome --profile-directory=Default"
 
-assign [class="ChatGPT Desktop"] 3
-for_window [class="ChatGPT Desktop"] move to workspace 3
-for_window [class="ChatGPT Desktop"] focus
+assign [title="ChatGPT"] 3
+for_window [title="ChatGPT"] move to workspace 3
+for_window [title="ChatGPT"] focus
 assign [title="Claude"] 3
 for_window [title="Claude"] move to workspace 3
 for_window [title="Claude"] focus
-bindsym Mod4+3 workspace number 3; exec --no-startup-id ~/dotFiles/i3/autostartapp.sh "chatgpt-desktop" 3; exec --no-startup-id ~/dotFiles/i3/autostartapp.sh  "google-chrome --app=https://claude.ai/new" 3
+bindsym Mod4+3 workspace number 3; exec --no-startup-id ~/dotFiles/i3/autostartapp.sh "google-chrome --app=https://chatgpt.com/" 3; exec --no-startup-id ~/dotFiles/i3/autostartapp.sh  "google-chrome --app=https://claude.ai/new" 3
 
 assign [class="Postman"] 4
 for_window [class="Postman"] move to workspace 4

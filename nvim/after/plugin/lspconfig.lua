@@ -8,11 +8,9 @@ lspconfig.gopls.setup({
   capabilities = capabilities
 })
 
--- lspconfig["tailwindcss"].setup({
--- on_attach = function(client, bufnr)
---   require("tailwindcss-colors").buf_attach(bufnr)
--- end
--- })
+-- Latex
+lspconfig.ltex.setup({})
+lspconfig.texlab.setup {}
 
 lspconfig["tailwindcss"].setup({
   capabilities = capabilities,
