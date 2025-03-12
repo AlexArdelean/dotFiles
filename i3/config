@@ -30,8 +30,9 @@ bindsym Mod4+3 workspace number 3; exec --no-startup-id ~/dotFiles/i3/autostarta
 assign [class="Postman"] 4
 for_window [class="Postman"] move to workspace 4
 for_window [class="Postman"] focus
-bindsym Mod4+4 workspace number 4; exec --no-startup-id ~/dotFiles/i3/autostartapp.sh \
-  "snap run postman" 4
+bindsym Mod4+4 workspace number 4; 
+# bindsym Mod4+4 workspace number 4; exec --no-startup-id ~/dotFiles/i3/autostartapp.sh \
+#   "snap run postman" 4
 
 assign [title="Gmail"] 5
 for_window [title="Gmail"] move to workspace 5
