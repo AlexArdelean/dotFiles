@@ -130,6 +130,7 @@ alias v="/home/saw/neovim/usr/bin/nvim"
 export TERM="xterm"
 
 export OPENAI_API_KEY=""
+export PATH=$HOME/.local/bin:$PATH
 
 # Define moon colors
 BLACK='\[\e[38;2;192;153;233m\]'
