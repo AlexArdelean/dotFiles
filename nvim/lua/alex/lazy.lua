@@ -229,4 +229,10 @@ require("lazy").setup({
       },
     },
   },
+
+  {
+    'renerocksai/telekasten.nvim',
+    dependencies = { 'nvim-telescope/telescope.nvim', 'mattn/calendar-vim' }
+  },
+
 })

@@ -43,7 +43,7 @@ function colors(opts)
       results = colors_table
     },
     sorter = conf.generic_sorter(opts),
-    attach_mappings = function(prompt_bufnr, map)
+    attach_mappings = function(prompt_bufnr)
       actions.select_default:replace(function()
         local selection_index = action_state.get_selected_entry().index
         local selected_color = colors_table[selection_index]
