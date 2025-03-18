@@ -191,6 +191,12 @@ require("lazy").setup({
     },
   },
 
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {},
+  },
+
   -- Lsp and auto completions
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",

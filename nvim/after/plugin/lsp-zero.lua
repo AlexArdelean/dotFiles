@@ -26,7 +26,6 @@ lsp_zero.format_on_save({
     timeout_ms = 10000,
   },
   servers = {
-    ['ts_ls'] = { 'javascript', 'typescript', 'typescriptreact' },
     ['rust_analyzer'] = { 'rust' },
     ['gopls'] = { 'go' },
   }
@@ -36,7 +35,7 @@ lsp_zero.format_on_save({
 -- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = { 'ts_ls', 'rust_analyzer', 'clangd' },
+  ensure_installed = { 'rust_analyzer', 'clangd' },
   handlers = {
     lsp_zero.default_setup,
     lua_ls = function()
