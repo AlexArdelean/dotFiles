@@ -1,4 +1,12 @@
 require("typescript-tools").setup {
+  debug = true,
+  on_attach = function(client, bufnr)
+    local opts = { buffer = bufnr, noremap = true, silent = true }
+    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+    vim.keymap.set("n", "<leader>rf", function()
+      vim.cmd("TSToolsRenameFile")
+    end, opts)
+  end,
   settings = {
     separate_diagnostic_server = true,
     publish_diagnostic_on = "insert_leave",
@@ -16,8 +24,8 @@ require("typescript-tools").setup {
     code_lens = "off",
     disable_member_code_lens = true,
     jsx_close_tag = {
-        enable = false,
-        filetypes = { "javascriptreact", "typescriptreact" },
+      enable = false,
+      filetypes = { "javascriptreact", "typescriptreact" },
     }
   },
 }
