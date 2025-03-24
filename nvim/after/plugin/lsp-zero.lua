@@ -31,17 +31,29 @@ lsp_zero.format_on_save({
   }
 })
 
--- to learn how to use mason.nvim with lsp-zero
--- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
+
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = { 'rust_analyzer', 'clangd' },
+  ensure_installed = {
+    'rust_analyzer',
+    'clangd',
+    'gopls',
+  },
   handlers = {
     lsp_zero.default_setup,
     lua_ls = function()
       local lua_opts = lsp_zero.nvim_lua_ls()
       require('lspconfig').lua_ls.setup(lua_opts)
     end,
+  }
+})
+require('mason-tool-installer').setup({
+  ensure_installed = {
+    'eslint_d',
+    'stylua',
+    'tailwindcss-language-server',
+    'lua-language-server',
+    'prettierd'
   }
 })
 

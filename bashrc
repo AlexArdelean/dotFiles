@@ -145,3 +145,14 @@ RESET='\[\e[0m\]' # Reset color
 
 # Set prompt colors using moon colors
 export PS1="$BLACK\u$RESET@$BLUE\h$RESET:$CYAN\w$RESET\$ "
+
+export PATH=$PATH:$HOME/go/bin
+
+
+export WALLIFY_DIR=/home/$USER/Desktop/wallify
+alias cdf="cd $WALLIFY_DIR/frontend"
+alias cdb="cd $WALLIFY_DIR/backend"
+alias dev-up="docker compose -f $WALLIFY_DIR/docker/docker-compose.dev.yml up --build"
+alias dev-down="docker compose -f $WALLIFY_DIR/docker/docker-compose.dev.yml down"
+alias prod-up="docker compose -f $WALLIFY_DIR/docker/docker-compose.prod.yml up --build"
+alias prod-down="docker compose -f $WALLIFY_DIR/docker/docker-compose.prod.yml down"
