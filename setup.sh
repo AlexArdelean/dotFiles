@@ -59,3 +59,4 @@ ln -s ~/dotFiles/i3 ~/.config
 ln -s ~/dotFiles/rofi ~/.config/
 ln -s ~/dotFiles/tmux/tmux.conf ~/.tmux.conf
 ln -s ~/dotFiles/bashrc ~/.bashrc
+ln -s ~/dotFiles/rofi/tokyonight_big1.rasi /usr/share/rofi/themes/
