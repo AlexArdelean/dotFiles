@@ -1,6 +1,14 @@
 #!/bin/bash
 
 
+# Check if alacritty is installed
+if ! command -v alacritty &> /dev/null; then
+    echo "alacritty not found. Installing..."
+    sudo snap install alacritty --classic
+else
+    echo "alacritty is already installed."
+fi
+
 # Check if rofi is installed
 if ! command -v rofi &> /dev/null; then
     echo "rofi not found. Installing..."
@@ -9,7 +17,7 @@ else
     echo "rofi is already installed."
 fi
 # Install the rofi theme
-sudo mv ~/.config/rofi/tokyonight.rasi /usr/share/rofi/themes
+sudo cp ~/.config/rofi/tokyonight.rasi /usr/share/rofi/themes
 
 # Check if tmux is installed
 if ! command -v tmux &> /dev/null; then
@@ -52,6 +60,14 @@ fi
 # Stuff needed to install
 # sudo apt install gtk2-engines-murrine // for theme
 # pip3 install i3ipc // for autotiling script
+
+# Install nerd font for symbols
+mkdir -p ~/.fonts
+cp ~/dotFiles/alacritty/JetBrainsMonoNLNerdFont-Regular.ttf ~/.fonts/
+cp ~/dotFiles/alacritty/JetBrainsMonoNLNerdFont-Italic.ttf ~/.fonts/
+cp ~/dotFiles/alacritty/JetBrainsMonoNLNerdFont-Bold.ttf ~/.fonts/
+cp ~/dotFiles/alacritty/JetBrainsMonoNLNerdFont-BoldItalic.ttf ~/.fonts/
+fc-cache -fv
 
 ln -s ~/dotFiles/nvim/ ~/.config/
 ln -s ~/dotFiles/alacritty/ ~/.config/
