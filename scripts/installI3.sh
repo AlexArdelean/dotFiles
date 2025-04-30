@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Check if the current desktop environment is MATE
+if [[ "$XDG_CURRENT_DESKTOP" != "MATE" ]]; then
+  echo "This script is intended to be run on Ubuntu MATE. Current desktop: $XDG_CURRENT_DESKTOP"
+  exit 1
+fi
+
 # Installs i3 on ubuntu mate 24.04
 sudo apt install i3
 sudo apt remove dunst
