@@ -1,5 +1,22 @@
 #!/bin/bash
 
+# Installs my programs for Ubuntu 24.04 
+
+# Check if variety is installed
+if ! command -v variety &> /dev/null; then
+    echo "variety not found. Installing..."
+    sudo sudo apt install variety
+else
+    echo "variety is already installed."
+fi
+
+# Check if golang is installed
+if ! command -v golang &> /dev/null; then
+    echo "golang not found. Installing..."
+    sudo sudo apt install golang 
+else
+    echo "golang is already installed."
+fi
 
 # Check if alacritty is installed
 if ! command -v alacritty &> /dev/null; then
@@ -57,18 +74,59 @@ else
     echo "ripgrep (rg) is already installed."
 fi
 
+# Install make if not installed
+if ! command -v make &> /dev/null; then
+    echo "Installing make..."
+    sudo apt-get install -y make
+else
+    echo "make is already installed."
+fi
+
+# Install Rust if not already installed
+if ! command -v cargo &> /dev/null; then
+    echo "Installing Rust..."
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+    source "$HOME/.cargo/env"
+else
+    echo "Rust is already installed."
+fi
+
+# Install fd-find using cargo
+cargo install fd-find
+
+# Install ripgrep using cargo
+cargo install ripgrep
+
+# Install nodejs if not installed
+if ! command -v node &> /dev/null; then
+    echo "Installing nodejs..."
+    sudo bash ~/dotFiles/scripts/nodesource_setup.sh
+    sudo apt-get install -y nodejs
+else
+    echo "nodejs is already installed."
+fi
+
+# Install tree-sitter-cli globally for treesitter-textobjects
+if ! npm list -g --depth=0 tree-sitter-cli &> /dev/null; then
+    echo "Installing tree-sitter-cli..."
+    sudo npm install -g tree-sitter-cli
+else
+    echo "tree-sitter-cli is already installed. Skipping."
+fi
+
 # Stuff needed to install
 # sudo apt install gtk2-engines-murrine // for theme
 # pip3 install i3ipc // for autotiling script
 
-# Install nerd font for symbols
+echo "Installing nerd font for symbols"
 mkdir -p ~/.fonts
 cp ~/dotFiles/alacritty/JetBrainsMonoNLNerdFont-Regular.ttf ~/.fonts/
 cp ~/dotFiles/alacritty/JetBrainsMonoNLNerdFont-Italic.ttf ~/.fonts/
 cp ~/dotFiles/alacritty/JetBrainsMonoNLNerdFont-Bold.ttf ~/.fonts/
 cp ~/dotFiles/alacritty/JetBrainsMonoNLNerdFont-BoldItalic.ttf ~/.fonts/
-fc-cache -fv
+fc-cache -fv > /dev/null 2>&1
 
+echo "Linking config directories"
 ln -s ~/dotFiles/nvim/ ~/.config/
 ln -s ~/dotFiles/alacritty/ ~/.config/
 ln -s ~/dotFiles/i3 ~/.config
