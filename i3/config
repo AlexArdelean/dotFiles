@@ -48,7 +48,7 @@ assign [title="Home Assistant"] 8
 for_window [title="Home Assistant"] move to workspace 8
 for_window [title="Home Assistant"] focus
 bindsym Mod4+8 workspace number 8; exec --no-startup-id ~/dotFiles/i3/autostartapp.sh \
-  "google-chrome --app=http://192.168.1.146:8123/" 8
+  "google-chrome --app=https://ha.AlexArdelean.com/" 8
 
 assign [class="Spotify"] 9
 for_window [class="Spotify"] move to workspace 9
