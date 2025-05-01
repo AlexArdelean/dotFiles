@@ -149,10 +149,11 @@ export PS1="$BLACK\u$RESET@$BLUE\h$RESET:$CYAN\w$RESET\$ "
 export PATH=$PATH:$HOME/go/bin
 
 
-export WALLIFY_DIR=/home/$USER/Desktop/wallify
+export WALLIFY_DIR=/home/$USER/wallify
 alias cdf="cd $WALLIFY_DIR/frontend"
 alias cdb="cd $WALLIFY_DIR/backend"
 alias dev-up="docker compose -f $WALLIFY_DIR/docker/docker-compose.dev.yml up --build"
 alias dev-down="docker compose -f $WALLIFY_DIR/docker/docker-compose.dev.yml down"
+alias dev-reset="docker compose -f \$WALLIFY_DIR/docker/docker-compose.dev.yml down -v"
 alias prod-up="docker compose -f $WALLIFY_DIR/docker/docker-compose.prod.yml up --build"
 alias prod-down="docker compose -f $WALLIFY_DIR/docker/docker-compose.prod.yml down"

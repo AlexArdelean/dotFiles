@@ -49,6 +49,8 @@ require('mason-lspconfig').setup({
 })
 require('mason-tool-installer').setup({
   ensure_installed = {
+    -- uses typescript-tools instead of typescript-language-server,
+    'ltex-ls',
     'eslint_d',
     'stylua',
     'tailwindcss-language-server',
