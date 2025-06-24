@@ -157,3 +157,5 @@ alias dev-down="docker compose -f $WALLIFY_DIR/docker/docker-compose.dev.yml dow
 alias dev-reset="docker compose -f \$WALLIFY_DIR/docker/docker-compose.dev.yml down -v"
 alias prod-up="docker compose -f $WALLIFY_DIR/docker/docker-compose.prod.yml up --build"
 alias prod-down="docker compose -f $WALLIFY_DIR/docker/docker-compose.prod.yml down"
+
+source /home/alex/athena/env/setup.bash

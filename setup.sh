@@ -2,10 +2,26 @@
 
 # Installs my programs for Ubuntu 24.04 
 
+# Check if jq is installed
+if ! command -v jq &> /dev/null; then
+    echo "jq not found. Installing..."
+    sudo apt install -y jq
+else
+    echo "jq is already installed."
+fi
+
+# Check if xclip is installed
+if ! command -v xclip &> /dev/null; then
+    echo "xclip not found. Installing..."
+    sudo apt install -y xclip
+else
+    echo "xclip is already installed."
+fi
+
 # Check if variety is installed
 if ! command -v variety &> /dev/null; then
     echo "variety not found. Installing..."
-    sudo sudo apt install variety
+    sudo sudo apt install -y variety
 else
     echo "variety is already installed."
 fi
@@ -13,7 +29,7 @@ fi
 # Check if golang is installed
 if ! command -v golang &> /dev/null; then
     echo "golang not found. Installing..."
-    sudo sudo apt install golang 
+    sudo sudo apt install -y golang 
 else
     echo "golang is already installed."
 fi
