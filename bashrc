@@ -158,12 +158,13 @@ alias prod-up="docker compose -f \$WALLIFY_DIR/docker/docker-compose.prod.yml up
 alias dev-reset="docker compose -f \$WALLIFY_DIR/docker/docker-compose.dev.yml down -v"
 
 export LUMI_UI_DIR=/home/$USER/athena/src/lumi_ui
+alias WEB_PROD="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.prod.yml up --build -d"
+alias WEB_PROD_DOWN="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.prod.yml down"
 alias ui="cd $LUMI_UI_DIR"
 alias WEB_DEV="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.dev.yml up --build"
 alias WEB_DOWN="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.dev.yml down"
 alias WEB_RESET="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.dev.yml down -v"
 alias WEB_PROD="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.prod.yml up --build -d"
-alias WEB_PROD_DOWN="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.prod.yml down"
 alias WEB_PROD_RESET="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.prod.yml down -v"
 
 export PATH="$HOME/.npm-global/bin:$PATH"
