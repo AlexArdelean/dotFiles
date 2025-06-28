@@ -152,10 +152,22 @@ export PATH=$PATH:$HOME/go/bin
 export WALLIFY_DIR=/home/$USER/wallify
 alias cdf="cd $WALLIFY_DIR/frontend"
 alias cdb="cd $WALLIFY_DIR/backend"
-alias dev-up="docker compose -f $WALLIFY_DIR/docker/docker-compose.dev.yml up --build"
-alias dev-down="docker compose -f $WALLIFY_DIR/docker/docker-compose.dev.yml down"
+alias dev-up="docker compose -f \$WALLIFY_DIR/docker/docker-compose.dev.yml up --build"
+alias dev-down="docker compose -f \$WALLIFY_DIR/docker/docker-compose.dev.yml down"
+alias prod-up="docker compose -f \$WALLIFY_DIR/docker/docker-compose.prod.yml up --build"
 alias dev-reset="docker compose -f \$WALLIFY_DIR/docker/docker-compose.dev.yml down -v"
-alias prod-up="docker compose -f $WALLIFY_DIR/docker/docker-compose.prod.yml up --build"
-alias prod-down="docker compose -f $WALLIFY_DIR/docker/docker-compose.prod.yml down"
 
+export LUMI_UI_DIR=/home/$USER/athena/src/lumi_ui
+alias ui="cd $LUMI_UI_DIR"
+alias WEB_DEV="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.dev.yml up --build"
+alias WEB_DOWN="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.dev.yml down"
+alias WEB_RESET="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.dev.yml down -v"
+alias WEB_PROD="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.prod.yml up --build -d"
+alias WEB_PROD_DOWN="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.prod.yml down"
+alias WEB_PROD_RESET="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.prod.yml down -v"
+
+export PATH="$HOME/.npm-global/bin:$PATH"
+
+# Luminous Stuff
+alias run-all="/home/alex/Desktop/luminous/run_all.sh"
 source /home/alex/athena/env/setup.bash
