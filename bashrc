@@ -157,6 +157,15 @@ alias dev-down="docker compose -f \$WALLIFY_DIR/docker/docker-compose.dev.yml do
 alias prod-up="docker compose -f \$WALLIFY_DIR/docker/docker-compose.prod.yml up --build"
 alias dev-reset="docker compose -f \$WALLIFY_DIR/docker/docker-compose.dev.yml down -v"
 
+export PATH="$HOME/.npm-global/bin:$PATH"
+
+# Luminous Stuff
+source /home/alex/athena/env/setup.bash
+
+# Hide the stuff after hostname to make it cleaner
+PS1='\[\033[36m\]\u\[\033[m\]:\[\033[33;1m\]\w\[\033[m\]$(parse_git_branch) $ '
+
+alias RUN_ALL="/home/alex/Desktop/luminous/run_all.sh"
 export LUMI_UI_DIR=/home/$USER/athena/src/lumi_ui
 alias WEB_PROD="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.prod.yml up --build -d"
 alias WEB_PROD_DOWN="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.prod.yml down"
@@ -167,8 +176,3 @@ alias WEB_RESET="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.dev.yml d
 alias WEB_PROD="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.prod.yml up --build -d"
 alias WEB_PROD_RESET="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.prod.yml down -v"
 
-export PATH="$HOME/.npm-global/bin:$PATH"
-
-# Luminous Stuff
-alias run-all="/home/alex/Desktop/luminous/run_all.sh"
-source /home/alex/athena/env/setup.bash
