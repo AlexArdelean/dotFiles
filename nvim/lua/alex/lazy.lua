@@ -181,17 +181,6 @@ require("lazy").setup({
   },
 
   {
-    "jackMort/ChatGPT.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "folke/trouble.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
-  },
-
-  {
     "pmizio/typescript-tools.nvim",
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     opts = {},
@@ -239,6 +228,13 @@ require("lazy").setup({
   {
     'renerocksai/telekasten.nvim',
     dependencies = { 'nvim-telescope/telescope.nvim', 'mattn/calendar-vim' }
+  },
+
+  {
+    'nvim-lua/popup.nvim',
+    'nvim-lua/plenary.nvim',
+    'nvim-telescope/telescope.nvim',
+    'jvgrootveld/telescope-zoxide'
   },
 
 })

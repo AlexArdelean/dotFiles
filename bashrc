@@ -176,3 +176,6 @@ alias WEB_RESET="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.dev.yml d
 alias WEB_PROD="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.prod.yml up --build -d"
 alias WEB_PROD_RESET="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.prod.yml down -v"
 
+eval "$(zoxide init bash)"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

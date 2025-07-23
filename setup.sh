@@ -2,6 +2,22 @@
 
 # Installs my programs for Ubuntu 24.04 
 
+# Check if is installed
+if ! command -v zoxide &> /dev/null; then
+    echo "zoxide not found. Installing..."
+    curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+else
+    echo "zoxide is already installed."
+fi
+
+# Check if fzf is installed
+if ! command -v fzf &> /dev/null; then
+    echo "fzf not found. Installing..."
+    sudo snap install fzf --edge
+else
+    echo "fzf is already installed."
+fi
+
 # Check if jq is installed
 if ! command -v jq &> /dev/null; then
     echo "jq not found. Installing..."
