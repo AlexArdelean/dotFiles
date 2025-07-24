@@ -173,7 +173,7 @@ alias ui="cd $LUMI_UI_DIR"
 alias WEB_DEV="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.dev.yml up --build"
 alias WEB_DOWN="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.dev.yml down"
 alias WEB_RESET="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.dev.yml down -v"
-alias WEB_PROD="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.prod.yml up --build -d"
+alias WEB_PROD="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.yml up --build -d"
 alias WEB_PROD_RESET="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.prod.yml down -v"
 
 eval "$(zoxide init bash)"
