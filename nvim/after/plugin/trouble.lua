@@ -2,6 +2,7 @@ require("trouble").setup {
   filter = { severity = vim.diagnostic.severity.ERROR },
 }
 
+vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>Trouble diagnostics toggle<cr>", { noremap = true, silent = true, desc = "Diagnostics (Trouble)" })
 vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", { noremap = true, silent = true, desc = "Diagnostics (Trouble)" })
 vim.api.nvim_set_keymap("n", "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { noremap = true, silent = true, desc = "Buffer Diagnostics (Trouble)" })
 vim.api.nvim_set_keymap("n", "<leader>cs", "<cmd>Trouble symbols toggle focus=false<cr>", { noremap = true, silent = true, desc = "Symbols (Trouble)" })
