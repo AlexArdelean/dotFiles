@@ -25,7 +25,6 @@ vim.keymap.set('n', '<leader><leader>', "<Cmd>Telescope frecency workspace=CWD<C
 vim.keymap.set('n', '<leader>fp', "<Cmd>Telescope frecency workspace=CWD preview=true<CR>", {})
 vim.keymap.set('n', '<leader>fg',
   ":lua require('telescope').extensions.live_grep_args.live_grep_args({preview = true})<CR>", {})
-vim.keymap.set("n", "<leader>fz", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 vim.keymap.set("n", "<leader>fc", ":lua require('telescope.builtin').git_commits{preview = true}<CR>")
 vim.keymap.set("n", "<leader>fs", ":lua require('telescope.builtin').git_stash{preview = true}<CR>")
 vim.keymap.set("n", "<leader>fm", "<Cmd>Telescope git_branches<CR>")
