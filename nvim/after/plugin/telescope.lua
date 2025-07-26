@@ -10,7 +10,8 @@ require "telescope".setup {
   },
   extensions = {
     frecency = {
-      ignore_patterns = { "node_modules/*" }
+      auto_validate = true,
+      ignore_patterns = { "node_modules/*" },
     }
   },
 }
