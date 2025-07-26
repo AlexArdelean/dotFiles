@@ -10,6 +10,7 @@ t.setup({
         default = {
           after_action = function(selection)
             print("Update to (" .. selection.z_score .. ") " .. selection.path)
+            vim.cmd("NvimTreeOpen")
           end
         },
         ["<C-s>"] = {

@@ -16,6 +16,7 @@ vim.api.nvim_create_autocmd("FileChangedShellPost", {
 
 vim.g.mapleader = " "
 vim.o.mouse = "a"
+vim.opt.mouse = "a"
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
