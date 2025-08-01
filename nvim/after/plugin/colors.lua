@@ -18,6 +18,10 @@ function ColorMyPencils(color)
 
 	--vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 	--vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+  vim.api.nvim_set_hl(0, 'LineNr', { fg = '#82aaff' })        -- Tokyo blue
+  vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = '#82aaff' })  -- Light purple/white
+  vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = '#82aaff' })
+  vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = '#82aaff' })
 end
 
 ColorMyPencils()

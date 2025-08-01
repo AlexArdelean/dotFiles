@@ -242,6 +242,7 @@ require("lazy").setup({
     lazy = false,
     dependencies = { "MunifTanjim/nui.nvim" },
     opts = {
+      enabled = false,
       disable_mouse = false
     },
   },
