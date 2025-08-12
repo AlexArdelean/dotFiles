@@ -116,11 +116,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export WIZARD_DIR=/home/$USER/wizard
-source $HOME/ros_noetic/install_isolated/setup.bash
-source $HOME/wizard/env/setup.bash
-source $HOME/wizard/devel/setup.bash
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -146,8 +141,10 @@ RESET='\[\e[0m\]' # Reset color
 # Set prompt colors using moon colors
 export PS1="$BLACK\u$RESET@$BLUE\h$RESET:$CYAN\w$RESET\$ "
 
-export PATH=$PATH:$HOME/go/bin
+# Hide the stuff after hostname to make it cleaner
+PS1='\[\033[36m\]\u\[\033[m\]:\[\033[33;1m\]\w\[\033[32m\]$(__git_ps1 " (%s)")\[\033[m\] $ '
 
+export PATH=$PATH:$HOME/go/bin
 
 export WALLIFY_DIR=/home/$USER/wallify
 alias cdf="cd $WALLIFY_DIR/frontend"
@@ -160,10 +157,7 @@ alias dev-reset="docker compose -f \$WALLIFY_DIR/docker/docker-compose.dev.yml d
 export PATH="$HOME/.npm-global/bin:$PATH"
 
 # Luminous Stuff
-source /home/alex/athena/env/setup.bash
-
-# Hide the stuff after hostname to make it cleaner
-PS1='\[\033[36m\]\u\[\033[m\]:\[\033[33;1m\]\w\[\033[m\]$(parse_git_branch) $ '
+# source /home/alex/athena_ws/athena/env/setup.bash
 
 alias RUN_ALL="/home/alex/Desktop/luminous/run_all.sh"
 export LUMI_UI_DIR=/home/$USER/athena/src/lumi_ui
@@ -179,3 +173,7 @@ alias WEB_PROD_RESET="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.prod
 eval "$(zoxide init bash)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Set the robot name for the Athena environment
+export ROBOT_NAME="xr-004"
+
