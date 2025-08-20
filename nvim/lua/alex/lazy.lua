@@ -258,4 +258,9 @@ require("lazy").setup({
     end,
   },
 
+  {
+    'stevearc/conform.nvim',
+    opts = {},
+  }
+
 })

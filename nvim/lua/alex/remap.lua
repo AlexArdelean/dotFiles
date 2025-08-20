@@ -2,15 +2,15 @@
 local is_wsl = vim.fn.has("wsl") == 1
 if is_wsl then
   vim.g.clipboard = {
-    name = 'WslClipboard',
+    name = "WslClipboard",
     copy = {
-      ['+'] = 'clip.exe',
-      ['*'] = 'clip.exe',
+      ["+"] = "clip.exe",
+      ["*"] = "clip.exe",
     },
     paste = {
-      ['+'] =
+      ["+"] =
       'powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-      ['*'] =
+      ["*"] =
       'powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
     },
     cache_enabled = 0,
@@ -46,12 +46,11 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
-
-vim.keymap.set("n", "<leader>ff", function()
+-- vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>f", function()
   vim.cmd("TSToolsAddMissingImports")
   vim.lsp.buf.format()
-end, opts)
+end, { desc = "Add imports and format" })
 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
@@ -93,5 +92,8 @@ vim.keymap.set("n", "<C-S-b>", "<cmd>NvimTreeFindFile<CR>")
 
 vim.keymap.set("n", "<leader>*", "<cmd>nohlsearch<CR>")
 
-vim.keymap.set('n', '<leader>vs', ':vsplit<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>hs', ':sp<CR>', { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>vs", ":vsplit<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>hs", ":sp<CR>", { noremap = true, silent = true })
+
+vim.keymap.set("n", "<leader>sh", "<C-w>H", { noremap = true, silent = true, desc = "Move window left" })
+vim.keymap.set("n", "<leader>sl", "<C-w>L", { noremap = true, silent = true, desc = "Move window right" })

@@ -1,5 +1,5 @@
 vim.opt.autoread = true
-vim.api.nvim_create_autocmd({"FocusGained", "BufEnter", "CursorHold", "CursorHoldI"}, {
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
   pattern = "*",
   callback = function()
     if vim.fn.mode() ~= 'c' then
@@ -17,6 +17,8 @@ vim.api.nvim_create_autocmd("FileChangedShellPost", {
 vim.g.mapleader = " "
 vim.o.mouse = "a"
 vim.opt.mouse = "a"
+
+vim.o.winborder = 'rounded'
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -47,4 +49,3 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
-

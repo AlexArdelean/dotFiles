@@ -1,19 +1,5 @@
 require("typescript-tools").setup {
   debug = true,
-  on_attach = function(client, bufnr)
-    -- client.server_capabilities.codeActionProvider = false
-    local opts = { buffer = bufnr, noremap = true, silent = true }
-    vim.keymap.set("n", "<leader>vrf", function()
-      vim.cmd("TSToolsRenameFile")
-    end, opts)
-    vim.keymap.set("n", "<leader>ff", function()
-      vim.lsp.buf.format({ async = true })
-      vim.defer_fn(function()
-        vim.cmd("TSToolsAddMissingImports")
-        vim.cmd("TSToolsOrganizeImports")
-      end, 100)
-    end, opts)
-  end,
   settings = {
     tsserver_file_preferences = {
       module = "esnext",

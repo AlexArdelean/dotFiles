@@ -31,5 +31,12 @@ require('blink.cmp').setup({
       lsp = { fallbacks = {}, },
     },
   },
+  completion = {
+    accept = {
+      auto_brackets = {
+        enabled = true,
+        blocked_filetypes = { 'javascriptreact', 'typescriptreact' }
+      }
+    }
+  }
 })
-
