@@ -48,8 +48,8 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 -- vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>f", function()
-  vim.cmd("TSToolsAddMissingImports")
   vim.lsp.buf.format()
+  vim.cmd("TSToolsAddMissingImports")
 end, { desc = "Add imports and format" })
 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
@@ -97,3 +97,6 @@ vim.keymap.set("n", "<leader>hs", ":sp<CR>", { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>sh", "<C-w>H", { noremap = true, silent = true, desc = "Move window left" })
 vim.keymap.set("n", "<leader>sl", "<C-w>L", { noremap = true, silent = true, desc = "Move window right" })
+
+vim.keymap.set({ 'n', 'v' }, 'gh', '^', { desc = "Go to beginning of line" })
+vim.keymap.set({ 'n', 'v' }, 'gl', '$', { desc = "Go to end of line" })

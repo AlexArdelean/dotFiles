@@ -12,7 +12,7 @@ require("nvim-tree").setup({
     width = 30,
     adaptive_size = true,
     float = {
-      enable = false;
+      enable = false,
     }
   },
   renderer = {
@@ -20,6 +20,7 @@ require("nvim-tree").setup({
   },
   filters = {
     dotfiles = false,
+    exclude = { "logs", ".env" },
   },
   update_focused_file = {
     enable = true,

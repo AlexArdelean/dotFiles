@@ -1,7 +1,8 @@
 require('leetcode').setup({
   arg = "leetcode.nvim",
 
-  lang = "cpp",
+  -- lang = "cpp",
+  lang = "typescript",
 
   storage = {
     home = vim.fn.stdpath("data") .. "/leetcode",

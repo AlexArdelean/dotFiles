@@ -159,21 +159,18 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 # Luminous Stuff
 # source /home/alex/athena_ws/athena/env/setup.bash
 
-alias RUN_ALL="/home/alex/Desktop/luminous/run_all.sh"
-export LUMI_UI_DIR=/home/$USER/athena/src/lumi_ui
-alias WEB_PROD="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.prod.yml up --build -d"
-alias WEB_PROD_DOWN="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.prod.yml down"
-alias ui="cd $LUMI_UI_DIR"
-alias WEB_DEV="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.dev.yml up --build"
-alias WEB_DOWN="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.dev.yml down"
-alias WEB_RESET="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.dev.yml down -v"
-alias WEB_PROD="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.yml up --build -d"
-alias WEB_PROD_RESET="docker compose -f \$LUMI_UI_DIR/docker/docker-compose.prod.yml down -v"
-
 eval "$(zoxide init bash)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # Set the robot name for the Athena environment
 export ROBOT_NAME="xr-004"
+
+export HOST_HOSTNAME="xr-004" 
+export GITHUB_USERNAME=lumibot-gh
+export GITHUB_TOKEN=00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
+# export ATHENA_DEPLOY_DIR=/home/alex/athena-deploy/
+
+
+export PATH="$HOME/.cargo/bin:$PATH"
 

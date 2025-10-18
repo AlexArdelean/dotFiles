@@ -1,6 +1,8 @@
 local lspconfig = require("lspconfig")
 local capabilities = require('blink.cmp').get_lsp_capabilities()
 
+vim.lsp.enable('css_variables')
+
 lspconfig.gopls.setup({
   capabilities = capabilities
 })
@@ -23,7 +25,9 @@ lspconfig["tailwindcss"].setup({
       experimental = {
         classRegex = {
           { "cva\\(((?:[^()]|\\([^()]*\\))*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
-          { "cx\\(((?:[^()]|\\([^()]*\\))*)\\)",  "(?:'|\"|`)([^']*)(?:'|\"|`)" }
+          { "cx\\(((?:[^()]|\\([^()]*\\))*)\\)",  "(?:'|\"|`)([^']*)(?:'|\"|`)" },
+          { "tv\\(([^)]*)\\)",                    "[\"'`]([^\"'`]*).*?[\"'`]" },
+          { "tv\\(.*?\\).*?`([^`]*)`",            "([a-zA-Z0-9\\-:]+)" }
         },
       },
     }

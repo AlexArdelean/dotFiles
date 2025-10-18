@@ -25,6 +25,7 @@ require("lazy").setup({
   },
   {
     'saghen/blink.cmp',
+    event = 'InsertEnter',
     dependencies = 'rafamadriz/friendly-snippets',
     version = '*',
     opts_extend = { "sources.default" }
@@ -134,13 +135,13 @@ require("lazy").setup({
   -- { 'dstein64/nvim-scrollview' },
 
   -- Color schemes
-  { "folke/tokyonight.nvim",           name = "tokyonight-night" },
-  { "rose-pine/neovim",                name = "rose-pine" },
-  { "rebelot/kanagawa.nvim" },
-  { "navarasu/onedark.nvim" },
-  { "gmr458/vscode_modern_theme.nvim", },
-  { "ellisonleao/gruvbox.nvim" },
-  { "marko-cerovac/material.nvim" },
+  { "folke/tokyonight.nvim", name = "tokyonight-night" },
+  -- { "rose-pine/neovim",                name = "rose-pine" },
+  -- { "rebelot/kanagawa.nvim" },
+  -- { "navarasu/onedark.nvim" },
+  -- { "gmr458/vscode_modern_theme.nvim", },
+  -- { "ellisonleao/gruvbox.nvim" },
+  -- { "marko-cerovac/material.nvim" },
 
   {
     "ThePrimeagen/harpoon",
@@ -154,11 +155,11 @@ require("lazy").setup({
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
-  {
-    "akinsho/bufferline.nvim",
-    version = "*",
-    dependencies = "nvim-tree/nvim-web-devicons",
-  },
+  -- {
+  --   "akinsho/bufferline.nvim",
+  --   version = "*",
+  --   dependencies = "nvim-tree/nvim-web-devicons",
+  -- },
   "lewis6991/gitsigns.nvim",
 
   -- Smooth scrolling
@@ -182,6 +183,7 @@ require("lazy").setup({
 
   {
     "pmizio/typescript-tools.nvim",
+    ft = { 'typescript', 'javascript', 'typescriptreact', 'javascriptreact' },
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     opts = {},
   },
@@ -261,6 +263,52 @@ require("lazy").setup({
   {
     'stevearc/conform.nvim',
     opts = {},
-  }
+  },
+
+  {
+    "mikavilpas/yazi.nvim",
+    version = "*", -- use the latest stable version
+    event = "VeryLazy",
+    dependencies = {
+      { "nvim-lua/plenary.nvim", lazy = true },
+    },
+    keys = {
+      -- 👇 in this section, choose your own keymappings!
+      {
+        "<leader>-",
+        mode = { "n", "v" },
+        "<cmd>Yazi<cr>",
+        desc = "Open yazi at the current file",
+      },
+      {
+        -- Open in the current working directory
+        "<leader>E",
+        "<cmd>Yazi cwd<cr>",
+        desc = "Open the file manager in nvim's working directory",
+      },
+      {
+        "<c-up>",
+        "<cmd>Yazi toggle<cr>",
+        desc = "Resume the last yazi session",
+      },
+    },
+    ---@type YaziConfig | {}
+    opts = {
+      -- if you want to open yazi instead of netrw, see below for more info
+      open_for_directories = false,
+      keymaps = {
+        show_help = "<f1>",
+      },
+    },
+    -- 👇 if you use `open_for_directories=true`, this is recommended
+    init = function()
+      -- mark netrw as loaded so it's not loaded at all.
+      --
+      -- More details: https://github.com/mikavilpas/yazi.nvim/issues/802
+      vim.g.loaded_netrwPlugin = 1
+    end,
+  },
+
+  { 'github/copilot.vim' }
 
 })
