@@ -21,3 +21,5 @@ vim.keymap.set('i', '<C-m>', 'copilot#Accept("\\<CR>")', {
   expr = true,
   replace_keycodes = false
 })
+
+vim.keymap.set("n", "<leader>cc", "<cmd>CopilotChatToggle<cr>", { desc = "Toggle Copilot Chat" })
