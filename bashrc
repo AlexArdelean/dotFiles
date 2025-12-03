@@ -168,7 +168,7 @@ export ROBOT_NAME="xr-004"
 
 export HOST_HOSTNAME="xr-004" 
 export GITHUB_USERNAME=lumibot-gh
-export GITHUB_TOKEN=00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
+export GITHUB_TOKEN=
 # export ATHENA_DEPLOY_DIR=/home/alex/athena-deploy/
 
 
