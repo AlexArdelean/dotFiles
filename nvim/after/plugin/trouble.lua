@@ -2,6 +2,7 @@ require("trouble").setup {
   filter = { severity = vim.diagnostic.severity.ERROR },
   auto_preview = false,
   use_diagnostic_signs = false,
+  focus = true
 }
 
 vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>Trouble diagnostics toggle<cr>",
