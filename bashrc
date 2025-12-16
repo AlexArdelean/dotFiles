@@ -180,5 +180,5 @@ alias lumi4='ssh -t lumi4 "NVIM_APPNAME=nvim-alex exec \$SHELL"'
 alias lumi4-2='ssh -t lumi@192.168.50.84 "NVIM_APPNAME=nvim-alex exec \$SHELL"'
 
 if [ -f ~/.secrets ]; then
-  source ~/.secrets
+  source ~/dotFiles/.secrets
 fi
