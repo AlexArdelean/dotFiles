@@ -156,29 +156,27 @@ alias dev-reset="docker compose -f \$WALLIFY_DIR/docker/docker-compose.dev.yml d
 
 export PATH="$HOME/.npm-global/bin:$PATH"
 
-# Luminous Stuff
-# source /home/alex/athena_ws/athena/env/setup.bash
-
+# Zoxide initialization
 eval "$(zoxide init bash)"
 
+# FZF configuration
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+source /usr/share/doc/fzf/examples/key-bindings.bash
 
+# Luminous Stuff
 # Set the robot name for the Athena environment
 export ROBOT_NAME="xr-004"
-
 export HOST_HOSTNAME="xr-004" 
 export GITHUB_USERNAME=lumibot-gh
 export GITHUB_TOKEN=
-# export ATHENA_DEPLOY_DIR=/home/alex/athena-deploy/
-
-
-export PATH="$HOME/.cargo/bin:$PATH"
-
-UI_HOST_HOSTNAME="alex"
-
 alias lumi4='ssh -t lumi4 "NVIM_APPNAME=nvim-alex exec \$SHELL"'
 alias lumi4-2='ssh -t lumi@192.168.50.84 "NVIM_APPNAME=nvim-alex exec \$SHELL"'
+UI_HOST_HOSTNAME="alex"
+
+export PATH="$HOME/.cargo/bin:$PATH"
 
 if [ -f ~/.secrets ]; then
   source ~/dotFiles/.secrets
 fi
+
+export PATH=$PATH:/home/alex/.spicetify
