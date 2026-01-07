@@ -175,7 +175,7 @@ UI_HOST_HOSTNAME="alex"
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
-if [ -f ~/.secrets ]; then
+if [ -f ~/dotFiles/.secrets ]; then
   source ~/dotFiles/.secrets
 fi
 
