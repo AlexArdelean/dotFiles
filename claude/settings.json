@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "additionalDirectories": [
+      "/home/alex/lumi_ws",
+      "/home/alex/lumi_ui",
+      "/home/alex/athena-deploy",
+      "/home/alex/lumi_fleet_management",
+      "/home/alex/telemetry-uploader"
+    ]
+  }
+}
