@@ -7,5 +7,6 @@
       "/home/alex/lumi_fleet_management",
       "/home/alex/telemetry-uploader"
     ]
-  }
+  },
+  "model": "opus[1m]"
 }
