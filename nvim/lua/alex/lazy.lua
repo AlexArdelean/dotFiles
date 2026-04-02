@@ -115,9 +115,12 @@ require("lazy").setup({
 		"nvim-telescope/telescope.nvim",
 		"nvim-telescope/telescope-live-grep-args.nvim",
 		tag = "0.1.5",
+		-- 'nvim-treesitter/nvim-treesitter-textobjects',
+	},
+
+	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
-		-- 'nvim-treesitter/nvim-treesitter-textobjects',
 	},
 
 	"nvim-tree/nvim-web-devicons",

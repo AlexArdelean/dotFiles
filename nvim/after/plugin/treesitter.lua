@@ -1,14 +1,34 @@
-function set_treesitter_cwd()
-  local current_buffer_path = vim.fn.expand(":TSBufName")
-  if current_buffer_path ~= '' then
-    local current_directory = vim.fn.fnamemodify(current_buffer_path, ":h")
-    vim.cmd('cd ' .. vim.fn.fnameescape(current_directory))
-  end
+local ensure_installed = {
+	"vimdoc",
+	"c",
+	"lua",
+	"vim",
+	"query",
+	"javascript",
+	"typescript",
+	"tsx",
+	"css",
+	"html",
+	"json",
+	"yaml",
+	"markdown",
+	"markdown_inline",
+}
+
+local installed = require("nvim-treesitter").get_installed()
+local to_install = vim.tbl_filter(function(lang)
+	return not vim.tbl_contains(installed, lang)
+end, ensure_installed)
+
+if #to_install > 0 then
+	require("nvim-treesitter").install(to_install)
 end
 
-vim.api.nvim_exec([[
-  augroup SetTreeSitterCWD
-      autocmd!
-      autocmd FileType * lua set_treesitter_cwd()
-  augroup END
-]], false)
+vim.api.nvim_create_autocmd("FileType", {
+	callback = function(args)
+		local ok = pcall(vim.treesitter.start, args.buf)
+		if ok then
+			vim.bo[args.buf].syntax = ""
+		end
+	end,
+})
