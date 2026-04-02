@@ -21,6 +21,7 @@ vim.lsp.config("texlab", {
 
 -- Tailwind CSS
 vim.lsp.config("tailwindcss", {
+	cmd = { vim.fn.stdpath("data") .. "/mason/bin/tailwindcss-language-server", "--stdio" },
 	capabilities = capabilities,
 	root_markers = { "tailwind.config.js", "tailwind.config.ts", "postcss.config.js", ".git" },
 	settings = {
