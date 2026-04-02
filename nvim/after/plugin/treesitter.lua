@@ -1,10 +1,3 @@
--- Enable treesitter highlighting for all filetypes
-vim.api.nvim_create_autocmd("FileType", {
-  callback = function()
-    pcall(vim.treesitter.start)
-  end,
-})
-
 function set_treesitter_cwd()
   local current_buffer_path = vim.fn.expand(":TSBufName")
   if current_buffer_path ~= '' then
