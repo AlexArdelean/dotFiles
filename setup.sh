@@ -99,11 +99,22 @@ fi
 # Check if ripgrep (rg) is installed
 if ! command -v rg &> /dev/null; then
     echo "ripgrep (rg) not found. Installing..."
-    # Install ripgrep based on your distribution
+# Install ripgrep based on your distribution
     sudo apt update
     sudo apt install ripgrep
 else
     echo "ripgrep (rg) is already installed."
+fi
+
+# Check if keyd is installed
+if ! command -v keyd &> /dev/null; then
+    echo "keyd not found. Installing from source..."
+    git clone https://github.com/rvaiya/keyd /tmp/keyd
+    make -C /tmp/keyd && sudo make -C /tmp/keyd install
+    sudo systemctl enable keyd && sudo systemctl start keyd
+    rm -rf /tmp/keyd
+else
+    echo "keyd is already installed."
 fi
 
 # Install make if not installed
@@ -168,3 +179,5 @@ ln -s ~/dotFiles/bashrc ~/.bashrc
 ln -s ~/dotFiles/rofi/tokyonight_big1.rasi /usr/share/rofi/themes/
 ln -s ~/dotFiles/claude/skills/ ~/.claude/
 ln -s ~/dotFiles/claude/settings.json ~/.claude/settings.json
+sudo mkdir -p /etc/keyd
+sudo ln -s ~/dotFiles/keyd/default.conf /etc/keyd/default.conf
