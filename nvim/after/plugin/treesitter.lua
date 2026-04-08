@@ -15,9 +15,8 @@ local ensure_installed = {
 	"markdown_inline",
 }
 
-local installed = require("nvim-treesitter").get_installed()
 local to_install = vim.tbl_filter(function(lang)
-	return not vim.tbl_contains(installed, lang)
+	return not pcall(vim.treesitter.language.inspect, lang)
 end, ensure_installed)
 
 if #to_install > 0 then
