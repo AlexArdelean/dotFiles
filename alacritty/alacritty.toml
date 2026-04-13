@@ -19,7 +19,7 @@ bold.family = "JetBrainsMonoNL Nerd Font"
 italic.family = "JetBrainsMonoNL Nerd Font"
 bold_italic.family = "JetBrainsMonoNL Nerd Font"
 
-size = 10 
+size = 14
 
 # -----------------------------------------------------------------------------
 # TokyoNight Alacritty Colors
