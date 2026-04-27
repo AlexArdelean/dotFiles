@@ -10,7 +10,7 @@ esac
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
-HISTCONTROL=ignoreboth
+HISTCONTROL=ignoredups
 
 # append to the history file, don't overwrite it
 shopt -s histappend
@@ -251,3 +251,18 @@ elif type compctl &>/dev/null; then
   compctl -K _npm_completion npm
 fi
 ###-end-npm-completion-###
+
+# Lumi workspace configuration
+export LUMI_WS_DIR="/home/alex/lumi_ws"
+if [ -f "$LUMI_WS_DIR/lumi_aliases/lumi_aliases.sh" ]; then
+    source "$LUMI_WS_DIR/lumi_aliases/lumi_aliases.sh"
+fi
+# Navigate to lumi_ws on new terminal
+cd "$LUMI_WS_DIR" 2>/dev/null || true
+
+# Enable shared history across multiple terminal sessions:
+# - histappend: append to history file instead of overwriting
+# - history -a: write new commands to the history file immediately
+# - history -n: read new commands from the history file
+shopt -s histappend
+PROMPT_COMMAND="history -a; history -n; $PROMPT_COMMAND"
