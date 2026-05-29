@@ -160,7 +160,6 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 eval "$(zoxide init bash)"
 
 # FZF configuration
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 source /usr/share/doc/fzf/examples/key-bindings.bash
 
 # Luminous Stuff
