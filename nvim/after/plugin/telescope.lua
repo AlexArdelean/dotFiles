@@ -37,8 +37,18 @@ vim.keymap.set("n", "<leader>fa",
 
 
 -- Lsp telescope things
-vim.keymap.set('n', 'gd', function() require('telescope.builtin').lsp_definitions({ preview = true }) end,
-  { noremap = false, silent = true })
+vim.keymap.set('n', 'gd', function()
+  local win = vim.api.nvim_get_current_win()
+  if vim.api.nvim_win_get_config(win).relative ~= "" then
+    local word = vim.fn.expand("<cword>")
+    vim.cmd("wincmd p")
+    vim.schedule(function()
+      require('telescope.builtin').lsp_workspace_symbols({ query = word, preview = true })
+    end)
+  else
+    require('telescope.builtin').lsp_definitions({ preview = true })
+  end
+end, { noremap = false, silent = true })
 vim.keymap.set('n', 'gr', function() require('telescope.builtin').lsp_references({ preview = true }) end,
   { noremap = false, silent = true })
 

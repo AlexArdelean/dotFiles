@@ -179,5 +179,6 @@ ln -s ~/dotFiles/bashrc ~/.bashrc
 ln -s ~/dotFiles/rofi/tokyonight_big1.rasi /usr/share/rofi/themes/
 ln -s ~/dotFiles/claude/skills/ ~/.claude/
 ln -s ~/dotFiles/claude/settings.json ~/.claude/settings.json
+ln -s ~/dotFiles/atuin/config.toml ~/.config/atuin/config.toml
 sudo mkdir -p /etc/keyd
 sudo ln -s ~/dotFiles/keyd/default.conf /etc/keyd/default.conf

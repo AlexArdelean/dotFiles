@@ -159,8 +159,13 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 # Zoxide initialization
 eval "$(zoxide init bash)"
 
+# Tools  
+alias bat='batcat --theme="ansi"'
+alias ls='eza'
+
 # FZF configuration
 source /usr/share/doc/fzf/examples/key-bindings.bash
+
 
 # Luminous Stuff
 # Set the robot name for the Athena environment
@@ -168,8 +173,6 @@ export ROBOT_NAME="xr-004"
 export HOST_HOSTNAME="xr-004" 
 export GITHUB_USERNAME=lumibot-gh
 export GITHUB_TOKEN=
-alias lumi4='ssh -t lumi4 "NVIM_APPNAME=nvim-alex exec \$SHELL"'
-alias lumi4-2='ssh -t lumi@192.168.50.84 "NVIM_APPNAME=nvim-alex exec \$SHELL"'
 UI_HOST_HOSTNAME="alex"
 
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -265,3 +268,9 @@ cd "$LUMI_WS_DIR" 2>/dev/null || true
 # - history -n: read new commands from the history file
 shopt -s histappend
 PROMPT_COMMAND="history -a; history -n; $PROMPT_COMMAND"
+
+
+. "$HOME/.atuin/bin/env"
+
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+eval "$(atuin init bash)"
