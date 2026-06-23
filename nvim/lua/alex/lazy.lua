@@ -15,7 +15,6 @@ require("lazy").setup({
 	"folke/which-key.nvim",
 	{ "folke/neoconf.nvim", cmd = "Neoconf" },
 	"folke/neodev.nvim",
-	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 	"nvim-lua/plenary.nvim",
 
 	{
@@ -60,7 +59,6 @@ require("lazy").setup({
 			"MunifTanjim/nui.nvim",
 			-- optional
 			"nvim-treesitter/nvim-treesitter",
-			"rcarriga/nvim-notify",
 			"nvim-tree/nvim-web-devicons",
 		},
 	},
@@ -167,14 +165,6 @@ require("lazy").setup({
 	--   dependencies = "nvim-tree/nvim-web-devicons",
 	-- },
 	"lewis6991/gitsigns.nvim",
-
-	-- Smooth scrolling
-	{
-		"karb94/neoscroll.nvim",
-		config = function()
-			require("neoscroll").setup({})
-		end,
-	},
 
 	{
 		"kylechui/nvim-surround",
@@ -316,26 +306,8 @@ require("lazy").setup({
 	},
 
 	{ "github/copilot.vim" },
-	{
-		"CopilotC-Nvim/CopilotChat.nvim",
-		dependencies = {
-			{ "nvim-lua/plenary.nvim", branch = "master" },
-		},
-		build = "make tiktoken",
-		opts = {
-			-- See Configuration section for options
-		},
-	},
 
 	{ "dmmulroy/tsc.nvim" },
-
-	{
-		"olimorris/codecompanion.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-treesitter/nvim-treesitter",
-		},
-	},
 
 	{
 		"iamcco/markdown-preview.nvim",

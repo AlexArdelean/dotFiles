@@ -1,17 +1,17 @@
 local Snacks = require("snacks").setup({
   rename = { enabled = true },
-  -- bigfile = { enabled = true },
-  -- dashboard = { enabled = true },
+  bigfile = { enabled = true }, -- disables expensive features on huge files
+  quickfile = { enabled = true }, -- render file before plugins load on direct open
+  words = { enabled = true }, -- auto-highlight LSP references under cursor
+  indent = { enabled = true }, -- indent guides (replaces indent-blankline)
+  scope = { enabled = true }, -- scope text objects + current-scope highlight
+  scroll = { enabled = true }, -- smooth scrolling (replaces neoscroll)
+  notifier = { enabled = true }, -- vim.notify UI (replaces nvim-notify)
+  dashboard = { enabled = true }, -- start screen
   -- explorer = { enabled = true },
-  -- indent = { enabled = true },
   -- input = { enabled = true },
   -- picker = { enabled = true },
-  -- notifier = { enabled = true },
-  -- quickfile = { enabled = true },
-  -- scope = { enabled = true },
-  -- scroll = { enabled = true },
   -- statuscolumn = { enabled = true },
-  -- words = { enabled = true },
 })
 
 local prev = { new_name = "", old_name = "" } -- Prevents duplicate events
