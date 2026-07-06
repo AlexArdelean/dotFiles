@@ -169,8 +169,8 @@ source /usr/share/doc/fzf/examples/key-bindings.bash
 
 # Luminous Stuff
 # Set the robot name for the Athena environment
-export ROBOT_NAME="xr-004"
-export HOST_HOSTNAME="xr-004" 
+# export ROBOT_NAME="xr-004"
+# export HOST_HOSTNAME="xr-004" 
 export GITHUB_USERNAME=lumibot-gh
 export GITHUB_TOKEN=
 UI_HOST_HOSTNAME="alex"
