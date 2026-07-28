@@ -259,9 +259,6 @@ export LUMI_WS_DIR="/home/alex/lumi_ws"
 if [ -f "$LUMI_WS_DIR/lumi_aliases/lumi_aliases.sh" ]; then
     source "$LUMI_WS_DIR/lumi_aliases/lumi_aliases.sh"
 fi
-# Navigate to lumi_ws on new terminal
-cd "$LUMI_WS_DIR" 2>/dev/null || true
-
 # Enable shared history across multiple terminal sessions:
 # - histappend: append to history file instead of overwriting
 # - history -a: write new commands to the history file immediately

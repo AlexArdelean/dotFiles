@@ -154,6 +154,7 @@ require("lazy").setup({
 	},
 	"mbbill/undotree",
 	"tpope/vim-fugitive",
+	"tpope/vim-obsession",
 	"norcalli/nvim-colorizer.lua",
 	{
 		"nvim-lualine/lualine.nvim",

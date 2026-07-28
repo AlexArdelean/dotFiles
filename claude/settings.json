@@ -1,5 +1,6 @@
 {
   "permissions": {
+    "defaultMode": "bypassPermissions",
     "additionalDirectories": [
       "/home/alex/lumi_ws",
       "/home/alex/lumi_ui",
@@ -8,6 +9,7 @@
       "/home/alex/telemetry-uploader"
     ]
   },
+  "model": "opus[1m]",
   "hooks": {
     "PostToolUse": [
       {
@@ -44,8 +46,10 @@
     ]
   },
   "enabledPlugins": {
-    "frontend-design@claude-plugins-official": true
+    "frontend-design@claude-plugins-official": true,
+    "frontend-design@claude-code-plugins": true
   },
-  "theme": "dark",
-  "model": "opus[1m]"
+  "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "dark"
 }
