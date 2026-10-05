@@ -271,3 +271,11 @@ PROMPT_COMMAND="history -a; history -n; $PROMPT_COMMAND"
 
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
 eval "$(atuin init bash)"
+
+. "$HOME/.local/share/../bin/env"
+
+# Tailscale-aware ssh host completion (online hosts first)
+source ~/dotFiles/scripts/ts-ssh-completion.bash
+
+# Playwright browsers in one place, whatever terminal (snaps move XDG_CACHE_HOME)
+export PLAYWRIGHT_BROWSERS_PATH="$HOME/.cache/ms-playwright"

@@ -9,7 +9,6 @@
       "/home/alex/telemetry-uploader"
     ]
   },
-  "model": "opus[1m]",
   "hooks": {
     "PostToolUse": [
       {
@@ -42,6 +41,74 @@
             "command": "atuin hook claude-code"
           }
         ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/alex/dotFiles/scripts/tmux-claude-state.sh busy"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/alex/dotFiles/scripts/tmux-claude-state.sh start"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/alex/dotFiles/scripts/tmux-claude-state.sh end"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/alex/dotFiles/scripts/tmux-claude-state.sh busy"
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/alex/dotFiles/scripts/tmux-claude-state.sh wait"
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/alex/dotFiles/scripts/tmux-claude-state.sh notify"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/alex/dotFiles/scripts/tmux-claude-state.sh done"
+          }
+        ]
       }
     ]
   },
@@ -55,5 +122,6 @@
     }
   },
   "skipDangerousModePermissionPrompt": true,
-  "theme": "dark"
+  "theme": "dark",
+  "preferredNotifChannel": "terminal_bell"
 }
