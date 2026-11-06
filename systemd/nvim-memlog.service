@@ -1,0 +1,6 @@
+[Unit]
+Description=Sample memory of nvim and its child processes
+
+[Service]
+Type=oneshot
+ExecStart=%h/dotFiles/scripts/nvim-memlog.sh sample
