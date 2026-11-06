@@ -4,7 +4,7 @@ set -u
 
 [ -n "${TMUX:-}" ] || exit 0
 
-CC_FILTER='#{?#{||:#{@cc},#{==:#{pane_current_command},claude}},'
+CC_FILTER='#{?#{||:#{@cc},#{m/r:^(claude|omp)$,#{pane_current_command}}},'
 CC_FIELDS='#{pane_id}|#{@cc}|#{session_name}|#{window_index}|#{pane_index}|#{window_panes}|#{@cc_name}|#{window_name}|#{@cc_tool}'
 
 panes_raw() {
@@ -32,7 +32,7 @@ panes_pretty() {
             npanes = $6; name = $7; wname = $8; tool = $9
             if (state == "") state = "unknown"
             label = name
-            if (label == "") { label = wname; sub(/^claude./, "", label) }
+            if (label == "") { label = wname; sub(/^(claude|omp)./, "", label) }
             loc = sess ":" win
             if (npanes > 1) loc = loc "." pane
             extra = (state == "busy" && tool != "") ? " (" tool ")" : ""
