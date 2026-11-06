@@ -279,3 +279,13 @@ source ~/dotFiles/scripts/ts-ssh-completion.bash
 
 # Playwright browsers in one place, whatever terminal (snaps move XDG_CACHE_HOME)
 export PLAYWRIGHT_BROWSERS_PATH="$HOME/.cache/ms-playwright"
+
+# Bare `tmux` reattaches to the running server instead of creating an empty session
+tmux() {
+  if [ $# -eq 0 ]; then
+    command tmux attach 2>/dev/null || command tmux new-session
+  else
+    command tmux "$@"
+  fi
+}
+export NODE_AUTH_TOKEN="$(cat ~/.config/lumi/packages-token 2>/dev/null)"
